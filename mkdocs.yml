@@ -8,8 +8,8 @@ site_description: >-
 
 # Repository
 repo_name: technoluc/technoluc.github.io
-repo_url: https://github.com/squidfunk/technoluc.github.io
-edit_uri: https://github.com/squidfunk/technoluc.github.io/edit/main/docs/
+repo_url: https://github.com/technoluc/technoluc.github.io
+edit_uri: edit/main/docs/
 
 
 # Theme
