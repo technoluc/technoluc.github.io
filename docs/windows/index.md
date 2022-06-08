@@ -1,9 +1,11 @@
 # Windows cheatsheet
 
-## Activate Windows 10/11 for free using batch file
+## Activate Windows 10/11 and Microsoft Office 2021 for free using batch file
 
+Add the code below to a new text file and save it as a .cmd file. Then run it as Administrator
 
-## Activate Office 2021 for free using Volume License
+credits: https://msguides.com/
+
 
 
 === "ActivateWindows.cmd"
@@ -56,8 +58,6 @@
     pause >nul
     ```
 
-
-credits: https://msguides.com/
 
 
 ## Install multiple apps via Winstall
