@@ -1,0 +1,6 @@
+# Site 
+site_name: My Docs
+
+# Theme
+theme:
+  name: material
