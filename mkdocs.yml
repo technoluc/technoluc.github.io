@@ -99,9 +99,20 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Markdown:
-    - Cheatsheet 1: markdown-cheat-sheet.md
-    - Cheatsheet 2: markdown-cheatsheet.md
+    - Cheatsheet 1: markdown/markdown-cheat-sheet.md
+    - Cheatsheet 2: markdown/markdown-cheatsheet.md
   - Windows:
     - windows/index.md
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
+  - Linux:
+    - linux/linuxbasics.md
+    - Bash:
+      - linux/bash/useful_commands.md
+      - bashrc: linux/bash/bashrc.md
+      - loops: linux/bash/loops.md
+    - Networking: linux/networking.md
+    - NFS: linux/nfs.md
+    - Sed: linux/sed.md
+    - Timezone: linux/set-timezone.md
+
