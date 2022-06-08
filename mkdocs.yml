@@ -107,12 +107,13 @@ nav:
     - Activate Windows 10/11: windows/windows.md
   - Linux:
     - linux/linuxbasics.md
-    - Bash:
-      - linux/bash/useful_commands.md
-      - bashrc: linux/bash/bashrc.md
-      - loops: linux/bash/loops.md
     - Networking: linux/networking.md
     - NFS: linux/nfs.md
     - Sed: linux/sed.md
     - Timezone: linux/set-timezone.md
+    - Bash:
+      - linux/bash/useful_commands.md
+      - bashrc: linux/bash/bashrc.md
+      - loops: linux/bash/loops.md
+
 
