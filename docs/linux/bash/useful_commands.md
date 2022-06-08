@@ -21,13 +21,13 @@
 - [chmod](#chmod)
 - [sudo](#sudo)
 
-# Update all
+## Update all
 
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-# 📝Shell scripts
+## 📝Shell scripts
 
 <aside>
 💡 One example of an easy script
@@ -50,23 +50,23 @@ sudo apt-get update && sudo apt-get upgrade
 
 ---
 
-# 🔗Command Chaining
+## 🔗Command Chaining
 
-## (;) The Semicolon Operator
+### (;) The Semicolon Operator
 
 <aside>
 💡 A ; B  – Run A and then B, regardless of the success or failure of A
 
 </aside>
 
-## (&&) The Logical AND Operator
+### (&&) The Logical AND Operator
 
 <aside>
 💡 A && B  – Run B only if A succeeded
 
 </aside>
 
-## (||) The Logical OR Operator
+### (||) The Logical OR Operator
 
 <aside>
 💡 A || B  – Run B only if A failed
@@ -75,9 +75,9 @@ sudo apt-get update && sudo apt-get upgrade
 
 ---
 
-# Echo/Tee
+## Echo/Tee
 
-## Append text to file with echo/tee
+### Append text to file with echo/tee
 
 ```bash
 
@@ -116,10 +116,10 @@ echo '\n${QNAP_IP}:/${QNAP_PATH} ${LOCAL_PATH} nfs defaults 0 0 ' | sudo tee -a 
 
 ---
 
-# Sed
+## Sed
 
 
-## Replace text in file
+### Replace text in file
 
 <aside>
 💡 (changes ssl=1 to ssl=0 in file /etc/webmin/miniserv.conf
@@ -133,9 +133,9 @@ sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 
 ---
 
-# wget/curl
+## wget/curl
 
-## wget
+### wget
 
 <aside>
 💡 Download file to current directory
@@ -168,7 +168,7 @@ wget  -O /home/${USER}/Desktop/NewFileName "http://thecanadiantestbox.x10.mx/CC.
 
 ---
 
-## curl
+### curl
 
 <aside>
 💡 Download file to current directory
@@ -190,7 +190,7 @@ curl –o [filename] [URL]
 
 ---
 
-# dpkg
+## dpkg
 
 ## Install .deb Package Using Dpkg
 
@@ -207,7 +207,7 @@ sudo dpkg --install [.deb file]
 sudo apt -f install
 ```
 
-## Remove Installed Package Using Dpkg
+### Remove Installed Package Using Dpkg
 
 <aside>
 💡 To find out the exact package name, you can use the following command with any keyword related to the package name:
@@ -222,7 +222,7 @@ dpkg –l | grep keyword
 sudo dpkg --remove [package file]
 ```
 
-# chmod
+## chmod
 
 <aside>
 💡 The `chmod` command [sets the file permissions flags](https://www.howtogeek.com/67987/htg-explains-how-do-linux-file-permissions-work/) on a file or folder. The flags define who can read, write to or execute the file. When you list files with the `-l` (long format) option you’ll see a string of characters that look like
@@ -260,7 +260,7 @@ To set the permission to be read, write and execute (7 from our list) for the *o
 chmod 766 example.txt
 ```
 
-# sudo
+## sudo
 
 <aside>
 💡 Configure sudo to work without a password for the current user:
