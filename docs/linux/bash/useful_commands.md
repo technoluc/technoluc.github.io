@@ -1,25 +1,4 @@
-# Useful Commands <!-- omit in toc -->
-
-
-- [Update all](#update-all)
-- [📝Shell scripts](#shell-scripts)
-- [🔗Command Chaining](#command-chaining)
-  - [(;) The Semicolon Operator](#-the-semicolon-operator)
-  - [(&&) The Logical AND Operator](#-the-logical-and-operator)
-  - [(||) The Logical OR Operator](#-the-logical-or-operator)
-- [Echo/Tee](#echotee)
-  - [Append text to file with echo/tee](#append-text-to-file-with-echotee)
-  - [Add contents of file to file](#add-contents-of-file-to-file)
-- [Sed](#sed)
-  - [Replace text in file](#replace-text-in-file)
-- [wget/curl](#wgetcurl)
-  - [wget](#wget)
-  - [curl](#curl)
-- [dpkg](#dpkg)
-  - [Install .deb Package Using Dpkg](#install-deb-package-using-dpkg)
-  - [Remove Installed Package Using Dpkg](#remove-installed-package-using-dpkg)
-- [chmod](#chmod)
-- [sudo](#sudo)
+# Useful Commands 
 
 ## Update all
 
@@ -85,21 +64,23 @@ echo 'text' | sudo tee -a /path/to/file
 
 ```
 
-## Add contents of file to file
+## Append content of file to file
 
 ```bash
+
 cat my_file.txt | sudo tee -a existing_file.txt > /dev/null
+
 ```
 
 **Examples :**
 
 <aside>
-💡 -e  for option \n
+💡 echo <b>-e </b> : for option \n
 
 </aside>
 
 <aside>
-💡 **\n :** this option creates new line from where it is used.
+💡 <b>\n</b>  : creates new line from where it is used.
 
 </aside>
 
@@ -119,10 +100,10 @@ echo '\n${QNAP_IP}:/${QNAP_PATH} ${LOCAL_PATH} nfs defaults 0 0 ' | sudo tee -a 
 ## Sed
 
 
-### Replace text in file
+<b> Replace text in file </b>
 
 <aside>
-💡 (changes ssl=1 to ssl=0 in file /etc/webmin/miniserv.conf
+💡 (change ssl=1 to ssl=0 in file /etc/webmin/miniserv.conf
 
 </aside>
 
@@ -192,7 +173,7 @@ curl –o [filename] [URL]
 
 ## dpkg
 
-## Install .deb Package Using Dpkg
+<b> Install .deb Package Using Dpkg </b>
 
 ```bash
 sudo dpkg --install [.deb file]
@@ -207,7 +188,7 @@ sudo dpkg --install [.deb file]
 sudo apt -f install
 ```
 
-### Remove Installed Package Using Dpkg
+<b> Remove Installed Package Using Dpkg </b>
 
 <aside>
 💡 To find out the exact package name, you can use the following command with any keyword related to the package name:
