@@ -95,3 +95,13 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Markdown:
+    - Cheatsheet 1: markdown-cheat-sheet.md
+    - Cheatsheet 2: markdown-cheatsheet.md
+  - Windows:
+    - windows/index.md
+    - Activate Office 2021: windows/office.md
+    - Activate Windows 10/11: windows/windows.md
