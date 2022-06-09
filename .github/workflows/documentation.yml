@@ -56,6 +56,6 @@ jobs:
 
       - name: Deploy documentation
         run: |
-          mkdocs build
+          mkdocs build -v
           mkdocs gh-deploy --force
           mkdocs --version
