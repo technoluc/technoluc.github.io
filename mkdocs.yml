@@ -106,14 +106,16 @@ nav:
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
   - Linux:
-    - linux/linuxbasics.md
+    - linux/index.md
     - Networking: linux/networking.md
     - NFS: linux/nfs.md
     - Sed: linux/sed.md
     - Timezone: linux/set-timezone.md
-    - Bash:
-      - linux/bash/useful_commands.md
-      - bashrc: linux/bash/bashrc.md
-      - loops: linux/bash/loops.md
+  - Bash:
+    - bash/index.md
+    - bashrc: bash/bashrc.md
+    - loops: bash/loops.md
+  - MkDocs:
+    - mkdocs/index.md
 
 

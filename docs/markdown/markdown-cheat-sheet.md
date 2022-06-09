@@ -1,5 +1,35 @@
 # Markdown Cheat Sheet
 
+- [Markdown Cheat Sheet](#markdown-cheat-sheet)
+  - [Basic Syntax](#basic-syntax)
+    - [Heading](#heading)
+- [H1](#h1)
+  - [H2](#h2)
+    - [H3](#h3)
+    - [Bold](#bold)
+    - [Italic](#italic)
+    - [Blockquote](#blockquote)
+    - [Ordered List](#ordered-list)
+    - [Unordered List](#unordered-list)
+    - [Code](#code)
+    - [Horizontal Rule](#horizontal-rule)
+    - [Link](#link)
+    - [Image](#image)
+  - [Extended Syntax](#extended-syntax)
+    - [Table](#table)
+    - [Fenced Code Block](#fenced-code-block)
+    - [Footnote](#footnote)
+    - [Heading ID](#heading-id)
+    - [My Great Heading {#custom-id}](#my-great-heading-custom-id)
+    - [Definition List](#definition-list)
+    - [Strikethrough](#strikethrough)
+    - [Task List](#task-list)
+    - [Emoji](#emoji)
+    - [Highlight](#highlight)
+    - [Subscript](#subscript)
+    - [Superscript](#superscript)
+
+
 Thanks for visiting [The Markdown Guide](https://www.markdownguide.org)!
 
 This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge case, so if you need more information about any of these elements, refer to the reference guides for [basic syntax](https://www.markdownguide.org/basic-syntax) and [extended syntax](https://www.markdownguide.org/extended-syntax).
