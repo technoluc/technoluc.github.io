@@ -108,6 +108,8 @@ nav:
     - NFS: linux/nfs.md
     - Sed: linux/sed.md
     - Timezone: linux/set-timezone.md
+  - Python: 
+    - python/index.md
   - Windows:
     - windows/index.md
     - Activate Office 2021: windows/office.md
