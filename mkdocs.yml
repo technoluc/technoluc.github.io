@@ -22,7 +22,7 @@ theme:
     - content.tooltips
     # - header.autohide
     # - navigation.expand
-    - navigation.indexes
+    # - navigation.indexes
     # - navigation.instant
     # - navigation.prune
     - navigation.sections
@@ -33,8 +33,8 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
-    - toc.follow
-    # - toc.integrate
+    # - toc.follow
+    - toc.integrate
   palette:
     - scheme: default
       primary: indigo
