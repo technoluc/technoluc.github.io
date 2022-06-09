@@ -43,7 +43,7 @@ theme:
         icon: material/toggle-switch
         name: Switch to dark mode
     - scheme: slate
-      primary: black
+      primary: indigo
       accent: pink
       toggle:
         icon: material/toggle-switch-off-outline
