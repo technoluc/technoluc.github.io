@@ -100,21 +100,27 @@ nav:
   - Home: index.md
   - Bash:
     - bash/index.md
+    - Useful Commands: bash/useful_commands.md
     - bashrc: bash/bashrc.md
-    - loops: bash/loops.md
+    - For.. Loops: bash/loops.md
+    - Scripts: bash/scripts.md
   - Linux:
     - linux/index.md
     - Networking: linux/networking.md
     - NFS: linux/nfs.md
     - Sed: linux/sed.md
     - Timezone: linux/set-timezone.md
+    - Hostname: linux/set-hostname.md
   - Python: 
     - python/index.md
+    - Virtual Environment: python/virtualenv.md
   - Windows:
     - windows/index.md
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
+    - WinGet: windows/winget.md
   - Markdown:
+    - markdown/index.md
     - Cheatsheet 1: markdown/markdown-cheat-sheet.md
     - Cheatsheet 2: markdown/markdown-cheatsheet.md
   - MkDocs:

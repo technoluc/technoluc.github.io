@@ -2,7 +2,7 @@
 
 ## "take" to mkdir $$ cd into new folder
 
-```
+```bash
 # take= mkdir && cd $1 #
 
 function take {
@@ -18,7 +18,7 @@ function take {
   
 ## Add aliases to change directories quicker
 
-```
+```bash
 # changedir aliases #
 
 alias cdd="cd .."
