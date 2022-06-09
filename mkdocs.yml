@@ -37,7 +37,7 @@ theme:
     - toc.integrate
   palette:
     - scheme: default
-      primary: black
+      primary: indigo
       accent: pink
       toggle:
         icon: material/toggle-switch
