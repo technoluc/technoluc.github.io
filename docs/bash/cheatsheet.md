@@ -91,8 +91,8 @@ echo {A,B}.js
 See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
 
 
-Parameter expansions
-———————
+## Parameter expansions
+****
 
 
 ### Basics
@@ -328,9 +328,8 @@ Otherwise, they do exactly the same thing (arguments as separate strings).
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
-Conditionals
-————
-{: .-three-column}
+## Conditionals
+****
 
 ### Conditions
 
@@ -423,8 +422,8 @@ if [[ -e “file.txt” ]]; then
 fi
 ```
 
-Arrays
-——
+## Arrays
+****
 
 ### Defining arrays
 
@@ -471,9 +470,8 @@ for i in “${arrayName[@]}”; do
 done
 ```
 
-Dictionaries
-————
-{: .-three-column}
+## Dictionaries
+****
 
 ### Defining
 
@@ -518,8 +516,8 @@ for key in “${!sounds[@]}”; do
 done
 ```
 
-Options
--——
+## Options
+****
 
 ### Options
 
@@ -543,8 +541,8 @@ shopt -s globstar    # Allow ** for recursive matches (‘lib/**/*.rb’ => ‘l
 Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
 matches.
 
-History
--——
+## History
+****
 
 ### Commands
 
@@ -588,8 +586,8 @@ History
 `!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
 
 
-Miscellaneous
--————
+## Miscellaneous
+****
 
 ### Numeric calculations
 
