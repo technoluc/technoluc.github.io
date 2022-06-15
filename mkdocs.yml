@@ -15,7 +15,7 @@ edit_uri: edit/main/docs/
 # Theme
 theme:
   name: material
-  logo: assets/TL.png
+  logo: assets/logo.png
   favicon: assets/TL.png
   language: en
   features:
