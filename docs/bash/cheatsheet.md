@@ -146,7 +146,7 @@ DIR=${SRC%$BASE}  #=> “/path/to/“ (dirpath)
 ### Substitution
 
 | Code              | Description         |
-| —————— | -—————— |
+| ---| --- |
 | `${FOO%suffix}`   | Remove suffix       |
 | `${FOO#prefix}`   | Remove prefix       |
 | —               | —                 |
