@@ -103,6 +103,7 @@ nav:
   - Bash:
     - bash/index.md
     - Useful Commands: bash/useful_commands.md
+    - Extended Cheatsheet: bash/cheatsheet.md
     - bashrc: bash/bashrc.md
     - For.. Loops: bash/loops.md
     - Scripts: bash/scripts.md
