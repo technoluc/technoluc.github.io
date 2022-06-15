@@ -1,16 +1,4 @@
-—
-title: Bash scripting
-category: CLI
-layout: 2017/sheet
-keywords:
-  - Variables
-  - Functions
-  - Interpolation
-  - Brace expansions
-  - Loops
-  - Conditional execution
-  - Command substitution
-—
+# Bash scripting
 
 ### Example
 
@@ -56,7 +44,6 @@ git commit || echo “Commit failed”
 ```
 
 ### Functions
-{: id=‘functions-example’}
 
 ```bash
 get_name() {
@@ -69,7 +56,6 @@ echo “You are $(get_name)”
 See: [Functions](#functions)
 
 ### Conditionals
-{: id=‘conditionals-example’}
 
 ```bash
 if [[ -z “$string” ]]; then
@@ -107,7 +93,7 @@ See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
 
 Parameter expansions
 ———————
-{: .-three-column}
+
 
 ### Basics
 
@@ -223,9 +209,9 @@ echo ${STR^^}  #=> “HELLO WORLD!” (all uppercase)
 
 Omitting the `:` removes the (non)nullity checks, e.g. `${FOO-val}` expands to `val` if unset otherwise `$FOO`.
 
-Loops
-——
-{: .-three-column}
+## Loops
+****
+
 
 ### Basic for loop
 
@@ -275,9 +261,9 @@ while true; do
 done
 ```
 
-Functions
-———
-{: .-three-column}
+## Functions
+****
+
 
 ### Defining functions
 
