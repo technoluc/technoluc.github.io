@@ -83,7 +83,7 @@ echo {A,B}.js
 ```
 
 | Expression | Description         |
-| -——— | -—————— |
+| --- | --- |
 | `{A,B}`    | Same as `A B`       |
 | `{A,B}.js` | Same as `A.js B.js` |
 | `{1..5}`   | Same as `1 2 3 4 5` |
@@ -149,13 +149,13 @@ DIR=${SRC%$BASE}  #=> “/path/to/“ (dirpath)
 | ---| --- |
 | `${FOO%suffix}`   | Remove suffix       |
 | `${FOO#prefix}`   | Remove prefix       |
-| —               | —                 |
+| ---               | ---                 |
 | `${FOO%%suffix}`  | Remove long suffix  |
 | `${FOO##prefix}`  | Remove long prefix  |
-| —               | —                 |
+| ---               | ---                 |
 | `${FOO/from/to}`  | Replace first match |
 | `${FOO//from/to}` | Replace all         |
-| —               | —                 |
+| ---               | ---                 |
 | `${FOO/%from/to}` | Replace suffix      |
 | `${FOO/#from/to}` | Replace prefix      |
 
@@ -176,14 +176,14 @@ comment
 ### Substrings
 
 | Expression      | Description                    |
-| ————— | —————————— |
+| --- | --- |
 | `${FOO:0:3}`    | Substring _(position, length)_ |
 | `${FOO:(-3):3}` | Substring from the right       |
 
 ### Length
 
 | Expression | Description      |
-| -——— | -————— |
+| --- | --- |
 | `${#FOO}`  | Length of `$FOO` |
 
 ### Manipulation
@@ -201,7 +201,7 @@ echo ${STR^^}  #=> “HELLO WORLD!” (all uppercase)
 ### Default values
 
 | Expression        | Description                                              |
-| —————— | ——————————————————— |
+| --- | --- |
 | `${FOO:-val}`     | `$FOO`, or `val` if unset (or null)                      |
 | `${FOO:=val}`     | Set `$FOO` to `val` if unset (or null)                   |
 | `${FOO:+val}`     | `val` if `$FOO` is set (and not null)                    |
@@ -316,7 +316,7 @@ fi
 ### Arguments
 
 | Expression | Description                                      |
-| —        | —                                              |
+| ---       | ---                                             |
 | `$#`       | Number of arguments                              |
 | `$*`       | All positional arguments  (as a single word)     |
 | `$@`       | All positional arguments (as separate strings)  |
@@ -336,29 +336,29 @@ See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_p
 Note that `[[` is actually a command/program that returns either `0` (true) or `1` (false). Any program that obeys the same logic (like all base utils, such as `grep(1)` or `ping(1)`) can be used as condition, see examples.
 
 | Condition                | Description           |
-| —                      | —                   |
+| ---                      | ---                   |
 | `[[ -z STRING ]]`        | Empty string          |
 | `[[ -n STRING ]]`        | Not empty string      |
 | `[[ STRING == STRING ]]` | Equal                 |
 | `[[ STRING != STRING ]]` | Not Equal             |
-| —                      | —                   |
+| ---                      | ---                   |
 | `[[ NUM -eq NUM ]]`      | Equal                 |
 | `[[ NUM -ne NUM ]]`      | Not equal             |
 | `[[ NUM -lt NUM ]]`      | Less than             |
 | `[[ NUM -le NUM ]]`      | Less than or equal    |
 | `[[ NUM -gt NUM ]]`      | Greater than          |
 | `[[ NUM -ge NUM ]]`      | Greater than or equal |
-| —                      | —                   |
+| ---                      | ---                   |
 | `[[ STRING =~ STRING ]]` | Regexp                |
-| —                      | —                   |
+| ---                      | ---                   |
 | `(( NUM < NUM ))`        | Numeric conditions    |
 
 #### More conditions
 
 | Condition            | Description              |
-| ——————— | ———————— |
+| --- | --- |
 | `[[ -o noclobber ]]` | If OPTIONNAME is enabled |
-| —                  | —                      |
+| ---                  | ---                      |
 | `[[ ! EXPR ]]`       | Not                      |
 | `[[ X && Y ]]`       | And                      |
 | `[[ X || Y ]]`       | Or                       |
@@ -366,7 +366,7 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 ### File conditions
 
 | Condition               | Description             |
-| —                     | —                     |
+| ---                     | ---                     |
 | `[[ -e FILE ]]`         | Exists                  |
 | `[[ -r FILE ]]`         | Readable                |
 | `[[ -h FILE ]]`         | Symlink                 |
@@ -375,7 +375,7 @@ Note that `[[` is actually a command/program that returns either `0` (true) or `
 | `[[ -s FILE ]]`         | Size is > 0 bytes       |
 | `[[ -f FILE ]]`         | File                    |
 | `[[ -x FILE ]]`         | Executable              |
-| —                     | —                     |
+| ---                     | ---                     |
 | `[[ FILE1 -nt FILE2 ]]` | 1 is more recent than 2 |
 | `[[ FILE1 -ot FILE2 ]]` | 2 is more recent than 1 |
 | `[[ FILE1 -ef FILE2 ]]` | Same files              |
@@ -547,14 +547,14 @@ matches.
 ### Commands
 
 | Command               | Description                               |
-| ——————— | —————————————— |
+| --- | --- |
 | `history`             | Show history                              |
 | `shopt -s histverify` | Don’t execute expanded result immediately |
 
 ### Expansions
 
 | Expression   | Description                                          |
-| ———— | -————————————————— |
+| --- | --- |
 | `!$`         | Expand last parameter of most recent command         |
 | `!*`         | Expand all parameters of most recent command         |
 | `!-n`        | Expand `n`th most recent command                     |
@@ -564,7 +564,7 @@ matches.
 ### Operations
 
 | Code                 | Description                                                           |
-| ——————— | ——————————————————————— |
+| --- | --- |
 | `!!`                 | Execute last command again                                            |
 | `!!:s/<FROM>/<TO>/`  | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
 | `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command  |
@@ -576,7 +576,7 @@ matches.
 ### Slices
 
 | Code     | Description                                                                              |
-| ——— | -————————————————————————————— |
+| --- | --- |
 | `!!:n`   | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
 | `!^`     | Expand first argument from most recent command                                           |
 | `!$`     | Expand last token from most recent command                                               |
@@ -682,7 +682,7 @@ printf “This is how you print a float: %f” 2
 ### Transform strings
 
 | Command option     | Description                                         |
-| —————— | ————————————————— |
+| --- | --- |
 | `-c`               | Operations apply to characters not in the given set |
 | `-d`               | Delete characters                                   |
 | `-s`               | Replaces repeated characters with single occurrence |
@@ -748,7 +748,7 @@ read -n 1 ans    # Just one character
 ### Special variables
 
 | Expression | Description                            |
-| -——— | ————————————— |
+| --- | --- |
 | `$?`       | Exit status of last task               |
 | `$!`       | PID of last background task            |
 | `$$`       | PID of shell                           |
