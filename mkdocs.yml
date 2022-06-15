@@ -123,6 +123,7 @@ nav:
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
     - WinGet: windows/winget.md
+    - SFC: windows/sfc.md
   - Excel:
     - excel/index.md
     - Addresses: excel/addresses.md
