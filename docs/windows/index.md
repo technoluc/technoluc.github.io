@@ -4,7 +4,9 @@
 
 [WinGet](winget.md)
 
-[FileSystemCheck](fsc.md)
+[Apps](apps.md)
+
+[System File Checker](sfc.md)
 
 
 ## Run TechnoLuc's WinUtil

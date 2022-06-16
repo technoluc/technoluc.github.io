@@ -123,6 +123,7 @@ nav:
     - Virtual Environment: python/virtualenv.md
   - Windows:
     - windows/index.md
+    - Apps: windows/apps.md
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
     - WinGet: windows/winget.md
