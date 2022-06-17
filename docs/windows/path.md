@@ -10,7 +10,7 @@ The first way is simply to do:
 $ENV:PATH="$ENV:PATH;c:\path\to\folder"
 ```
 
-But this change isn’t permenant, <code class="language-powershell"><span class="token variable">$env</span>:path</code> will default back to what it was before as soon as you close your powershell terminal and reopen it again. That’s because you have applied the change at the session level and not at the source level (which is the registry level). To view the global value of <code class="language-powershell"><span class="token variable">$env</span>:path</code>, do:
+But this change isn’t permenant, `$env:path` will default back to what it was before as soon as you close your powershell terminal and reopen it again. That’s because you have applied the change at the session level and not at the source level (which is the registry level). To view the global value of `$env:path`, do:
 
 ```bat
 Get-ItemProperty -Path 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' -Name PATH 
