@@ -14,7 +14,11 @@
 ```bat
 iwr -useb https://win.technoluc.nl | iex
 ```
+## Add 7-Zip to $PATH
 
+```bat
+$Env:PATH = "C:\Program Files\7-Zip;$Env:PATH"
+```
 
 ## Activate Windows 10/11 and Microsoft Office 2021 for free using batch file
 
