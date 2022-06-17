@@ -6,6 +6,8 @@
 
 [Apps](apps.md)
 
+[NirSoft](nirsoft.md)
+
 [System File Checker](sfc.md)
 
 
