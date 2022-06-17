@@ -8,6 +8,8 @@
 
 [NirSoft](nirsoft.md)
 
+[$PATH]([path.md)
+
 [System File Checker](sfc.md)
 
 
