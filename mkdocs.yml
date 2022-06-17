@@ -126,6 +126,8 @@ nav:
     - Apps: windows/apps.md
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
+    - Nirsoft: windows/nirsoft.md
+    - Path: windows/path.md
     - WinGet: windows/winget.md
     - SFC: windows/sfc.md
   - Excel:
