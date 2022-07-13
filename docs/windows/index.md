@@ -12,6 +12,8 @@
 
 [System File Checker](sfc.md)
 
+[Printers](printers.md)
+
 
 ## Run TechnoLuc's WinUtil
 

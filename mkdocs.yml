@@ -130,6 +130,7 @@ nav:
     - Path: windows/path.md
     - WinGet: windows/winget.md
     - SFC: windows/sfc.md
+    - Printers: windows/printers.md
   - Excel:
     - excel/index.md
     - Addresses: excel/addresses.md
