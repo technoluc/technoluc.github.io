@@ -136,6 +136,7 @@ nav:
     - Addresses: excel/addresses.md
     - Formulas: excel/formulas.md
   - MacOS:
+    - macos/index.md
     - Shortcuts: macos/macos-shortcuts.md
     - VSCode Shortcuts: macos/vscode-macos-shortcuts.md
   - Markdown:
@@ -145,6 +146,7 @@ nav:
   - MkDocs:
     - mkdocs/index.md
   - Miscellaneous:
+    - misc/index.md
     - HTTP Status Codes: misc/http-status-codes.md
 
 
