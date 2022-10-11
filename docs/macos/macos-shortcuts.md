@@ -1,13 +1,6 @@
 # MacOS keyboard shortcuts
 
-# Table of contents
-- [MacOS keyboard shortcuts](#macos-keyboard-shortcuts)
-- [Table of contents](#table-of-contents)
-  - [Mac Keyboard Modifier keys](#mac-keyboard-modifier-keys)
-  - [Cut, copy, paste, and other common shortcuts](#cut-copy-paste-and-other-common-shortcuts)
-  - [Sleep, log out, and shut down shortcuts](#sleep-log-out-and-shut-down-shortcuts)
-  - [Finder and system shortcuts](#finder-and-system-shortcuts)
-  - [Document shortcuts](#document-shortcuts)
+
 
 ## Mac Keyboard Modifier keys
 | key  | description    |
