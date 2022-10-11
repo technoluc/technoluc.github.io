@@ -141,5 +141,7 @@ nav:
     - Cheatsheet 2: markdown/markdown-cheatsheet.md
   - MkDocs:
     - mkdocs/index.md
+  - Miscellaneous:
+    - misc/http-status-codes.md
 
 
