@@ -144,7 +144,7 @@ nav:
     - Nginx: misc/nginx.md
   - Submodules:
     - submodules/index.md 
-    - Simple Bash Scripts: '!include ./docs/submodules/simple-bash-scripts/mkdocs.yml'
+#    - Simple Bash Scripts: '!include ./docs/submodules/simple-bash-scripts/mkdocs.yml'
   - Proxmox:
     - proxmox/index.md
     - CT: proxmox/ct.md
