@@ -51,7 +51,8 @@ jobs:
             pip install mkdocs-material \
             mkdocs-minify-plugin>=0.3 \
             mkdocs-redirects>=1.0 \
-            mkdocs-rss-plugin>=0.17
+            mkdocs-rss-plugin>=0.17 \
+            mkdocs-awesome-pages-plugin
 
 
       - name: Deploy documentation

@@ -57,6 +57,12 @@ theme:
   icon:
     logo: logo
 
+# Plugins
+
+plugins:
+    - search
+    - awesome-pages
+
 # Extensions
 markdown_extensions:
   - abbr
@@ -135,7 +141,7 @@ nav:
     - misc/index.md
     - HTTP Status Codes: misc/http-status-codes.md
     - Nginx: misc/nginx.md
-    - Other: submodules/index.md
+    - xcad2k cheat-sheets: ... | xcad2k-cheat-sheets/*.md
   - Proxmox:
     - proxmox/index.md
     - CT: proxmox/ct.md
