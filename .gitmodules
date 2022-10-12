@@ -1,0 +1,3 @@
+[submodule "docs/submodules/ruanyf/docs"]
+	path = docs/submodules/ruanyf/docs
+	url = https://technoluc@github.com/ruanyf/simple-bash-scripts
