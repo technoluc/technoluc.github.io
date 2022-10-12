@@ -1,9 +1,44 @@
-# Docker Cheat-Sheet
-Docker is a set of platform as a service products that use OS-Level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries, and configuration files; they can communicate with each other through well-defined channels. Because all of the containers share the services of a single operating system kernel, they use fewer resources than virtual machines.
+# Docker
+**Docker** is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called _containers_. The service has both free and premium tiers. The software that hosts the containers is called **Docker Engine**.
 
-The service has both free and premium tiers. The software that hosts the containers is called **Docker Engine**.
+Project Homepage: [Home - Docker](https://www.docker.com/)
+Documentation: [Docker Documentation | Docker Documentation](https://docs.docker.com/)
 
-## Container Management
+---
+## Installation
+
+One click installation script:
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+
+Run docker as non root user:
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+
+Install Docker Engine : [Docker Engine](https://docs.docker.com/engine/install/)
+
+---
+## Build Images
+
+
+---
+## Docker CLI
+
+**Run Containers**
+
+COMMAND | DESCRIPTION
+---|---
+`docker run IMAGE` | Start a new container
+`docker run --name CONTAINER IMAGE` | Start a new container and set a name
+`docker run -p HOSTPORT:CONTAINERPORT IMAGE` | Start a new container with mapped ports
+`docker run -P IMAGE` | Start a new container and map all ports
+
+**Container Management:**
+
 COMMAND | DESCRIPTION
 ---|---
 `docker create IMAGE` | Create a new container
@@ -14,7 +49,9 @@ COMMAND | DESCRIPTION
 `docker pause CONTAINER` | Suspend a container
 `docker unpause CONTAINER` | Resume a container
 `docker rm CONTAINER` | Destroy a container
-## Container Bulk Management
+
+**Container Bulk Management**
+
 COMMAND | DESCRIPTION
 ---|---
 `docker stop $(docker ps -q)` | To stop all the running containers
@@ -34,24 +71,21 @@ COMMAND | DESCRIPTION
 `docker system prune` | To delete all dangling and unused images, containers, cache and volumes
 `docker system prune -a` | To delete all used and unused images
 `docker system prune --volumes` | To delete all docker volumes
-### Parameters
-COMMAND | DESCRIPTION
----|---
-`docker run IMAGE` | Start a new container
-`docker run --name CONTAINER IMAGE` | Start a new container and set a name
-`docker run -p HOSTPORT:CONTAINERPORT IMAGE` | Start a new container with mapped ports
-`docker run -P IMAGE` | Start a new container and map all ports
-## Inspect
+
+**Inspect Containers:**
+
 COMMAND | DESCRIPTION
 ---|---
 `docker ps` | List running containers
-`docker ps -a` | List all running containers
+`docker ps -a` | List all containers, including stopped
 `docker logs CONTAINER` | Show a container output
 `docker logs -f CONTAINER` | Follow a container output
 `docker top CONTAINER` | List the processes running in a container
 `docker diff` | Show the differences with the image (modified files)
 `docker inspect` | Show information of a container (json formatted)
-## Commands
+
+**Run Commands:**
+
 COMMAND | DESCRIPTION
 ---|---
 `docker attach CONTAINER` | Attach to a container
@@ -59,9 +93,11 @@ COMMAND | DESCRIPTION
 `docker cp HOSTPATH CONTAINER:PATH` | Copy files into the container
 `docker export CONTAINER` | Export the content of the container (tar archive)
 `docker exec CONTAINER` | Run a command inside a container
-`docker exec -it CONTAINER /bin/bash` | Open an interactive shell inside a container
+`docker exec -it CONTAINER /bin/bash` | Open an interactive shell inside a container (there is no bash in some images, use /bin/sh)
 `docker wait CONTAINER` | Wait until the container terminates and return the exit code
-## Images
+
+**Images:**
+
 COMMAND | DESCRIPTION
 ---|---
 `docker images` | List all local images
@@ -78,19 +114,25 @@ COMMAND | DESCRIPTION
 `docker logout` | Logout from a registry
 `docker save REPO:[TAG]` | Export an image/repo as a tarball
 `docker load` | Load images from a tarball
-## Volumes
+
+**Volumes:**
+
 COMMAND | DESCRIPTION
 ---|---
-`docker volumes` | List all volumes
+`docker volume ls` | List all vol1umes
 `docker volume create VOLUME` | Create a volume
 `docker volume inspect VOLUME` | Show information (json formatted)
 `docker volume rm VOLUME` | Destroy a volume
+`docker volume ls --filter="dangling=true"` | List all dangling volumes (not referenced by any container)
+`docker volume prune` | Delete all volumes (not referenced by any container)
+
 ### Backup a container
 Backup docker data from inside container volumes and package it in a tarball archive.
 `docker run --rm --volumes-from CONTAINER -v $(pwd):/backup busybox tar cvfz /backup/backup.tar CONTAINERPATH`
+
 ### Restore container from backup
 Restore the volume with a tarball archive.
-`docker run --rm --volumes-from CONTAINER -v $(pwd):/backup busybox bash -c "cd CONTAINERPATH && tar xvf /backup/backup.tar --strip 1"`
+`docker run --rm --volumes-from CONTAINER -v $(pwd):/backup busybox sh -c "cd CONTAINERPATH && tar xvf /backup/backup.tar --strip 1"`
 ## Networks
 
 ## Troubleshooting
