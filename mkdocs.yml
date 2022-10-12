@@ -153,5 +153,6 @@ nav:
   - Miscellaneous:
     - misc/index.md
     - HTTP Status Codes: misc/http-status-codes.md
+    - Nginx: misc/nginx.md
 
 
