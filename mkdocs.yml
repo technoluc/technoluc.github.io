@@ -141,7 +141,7 @@ nav:
     - misc/index.md
     - HTTP Status Codes: misc/http-status-codes.md
     - Nginx: misc/nginx.md
-    - xcad2k cheat-sheets: ... | xcad2k-cheat-sheets/*.md
+    - xcad2k cheat-sheets: ... | xcad2k-cheat-sheets/*/*.md
   - Proxmox:
     - proxmox/index.md
     - CT: proxmox/ct.md
