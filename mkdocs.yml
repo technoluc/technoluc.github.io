@@ -62,6 +62,7 @@ theme:
 plugins:
     - search
     - awesome-pages
+    - monorepo
 
 # Extensions
 markdown_extensions:
@@ -143,7 +144,7 @@ nav:
     - Nginx: misc/nginx.md
   - Submodules:
     - submodules/index.md 
-    - xcad2k cheat-sheets: ...
+    - Simple Bash Scripts: '!include ./docs/submodules/ruanyf/mkdocs.yml'
   - Proxmox:
     - proxmox/index.md
     - CT: proxmox/ct.md

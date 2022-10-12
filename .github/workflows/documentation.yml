@@ -52,7 +52,8 @@ jobs:
             mkdocs-minify-plugin>=0.3 \
             mkdocs-redirects>=1.0 \
             mkdocs-rss-plugin>=0.17 \
-            mkdocs-awesome-pages-plugin
+            mkdocs-awesome-pages-plugin \
+            mkdocs-monorepo-plugin
 
 
       - name: Deploy documentation
