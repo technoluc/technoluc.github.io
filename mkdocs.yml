@@ -108,16 +108,16 @@ nav:
     - Scripts: bash/scripts.md
     - Useful Commands: bash/useful_commands.md
   - Docker: 
+    - docker/index.md
     - Docker CLI: docker/docker-cli.md
     - Docker Compose: docker/docker-compose.md
-    - docker/index.md
   - Excel:
-    - Addresses: excel/addresses.md
     - excel/index.md
+    - Addresses: excel/addresses.md
     - Formulas: excel/formulas.md
   - Linux:
-    - Hostname: linux/set-hostname.md
     - linux/index.md
+    - Hostname: linux/set-hostname.md
     - Networking: linux/networking.md
     - NFS: linux/nfs.md
     - Sed: linux/sed.md
@@ -127,23 +127,24 @@ nav:
     - Shortcuts: macos/macos-shortcuts.md
     - VSCode Shortcuts: macos/vscode-macos-shortcuts.md
   - Markdown:
+    - markdown/index.md
     - Cheatsheet 1: markdown/markdown-cheat-sheet.md
     - Cheatsheet 2: markdown/markdown-cheatsheet.md
-    - markdown/index.md
     - MkDocs: mkdocs/index.md
   - Miscellaneous:
-    - HTTP Status Codes: misc/http-status-codes.md
     - misc/index.md
+    - HTTP Status Codes: misc/http-status-codes.md
     - Nginx: misc/nginx.md
   - Proxmox:
+    - proxmox/index.md
     - CT: proxmox/ct.md
     - Notes: proxmox/notes.md
-    - proxmox/index.md
     - VM: proxmox/vm.md
   - Python: 
     - python/index.md
     - Virtual Environment: python/virtualenv.md
   - Windows:
+    - windows/index.md
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
     - Apps: windows/apps.md
@@ -151,5 +152,4 @@ nav:
     - Path: windows/path.md
     - Printers: windows/printers.md
     - SFC: windows/sfc.md
-    - windows/index.md
     - WinGet: windows/winget.md
