@@ -135,6 +135,7 @@ nav:
     - misc/index.md
     - HTTP Status Codes: misc/http-status-codes.md
     - Nginx: misc/nginx.md
+    - Other: submodules/index.md
   - Proxmox:
     - proxmox/index.md
     - CT: proxmox/ct.md

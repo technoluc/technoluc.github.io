@@ -1,0 +1,6 @@
+[submodule "docs/submodules/xcad2k-cheat-sheets"]
+	path = docs/submodules/xcad2k-cheat-sheets
+	url = git@github.com:xcad2k/cheat-sheets.git
+[submodule "docs/submodules/ruany-simple-bash-scripts"]
+	path = docs/submodules/ruany-simple-bash-scripts
+	url = https://technoluc@github.com/ruanyf/simple-bash-scripts
