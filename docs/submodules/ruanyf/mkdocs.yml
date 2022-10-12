@@ -5,4 +5,4 @@ plugins:
     - awesome-pages
 
 nav:
-  - ...
+    -  README.md 
