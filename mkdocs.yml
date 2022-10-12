@@ -98,3 +98,58 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+nav:
+  - Home: index.md
+  - Bash:
+    - bash/index.md
+    - bashrc: bash/bashrc.md
+    - Extended Cheatsheet: bash/cheatsheet.md
+    - For.. Loops: bash/loops.md
+    - Scripts: bash/scripts.md
+    - Useful Commands: bash/useful_commands.md
+  - Docker: 
+    - Docker CLI: docker/docker-cli.md
+    - Docker Compose: docker/docker-compose.md
+    - docker/index.md
+  - Excel:
+    - Addresses: excel/addresses.md
+    - excel/index.md
+    - Formulas: excel/formulas.md
+  - Linux:
+    - Hostname: linux/set-hostname.md
+    - linux/index.md
+    - Networking: linux/networking.md
+    - NFS: linux/nfs.md
+    - Sed: linux/sed.md
+    - Timezone: linux/set-timezone.md
+  - MacOS:
+    - macos/index.md
+    - Shortcuts: macos/macos-shortcuts.md
+    - VSCode Shortcuts: macos/vscode-macos-shortcuts.md
+  - Markdown:
+    - Cheatsheet 1: markdown/markdown-cheat-sheet.md
+    - Cheatsheet 2: markdown/markdown-cheatsheet.md
+    - markdown/index.md
+    - MkDocs: mkdocs/index.md
+  - Miscellaneous:
+    - HTTP Status Codes: misc/http-status-codes.md
+    - misc/index.md
+    - Nginx: misc/nginx.md
+  - Proxmox:
+    - CT: proxmox/ct.md
+    - Notes: proxmox/notes.md
+    - proxmox/index.md
+    - VM: proxmox/vm.md
+  - Python: 
+    - python/index.md
+    - Virtual Environment: python/virtualenv.md
+  - Windows:
+    - Activate Office 2021: windows/office.md
+    - Activate Windows 10/11: windows/windows.md
+    - Apps: windows/apps.md
+    - Nirsoft: windows/nirsoft.md
+    - Path: windows/path.md
+    - Printers: windows/printers.md
+    - SFC: windows/sfc.md
+    - windows/index.md
+    - WinGet: windows/winget.md
