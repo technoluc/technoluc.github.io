@@ -121,6 +121,11 @@ nav:
   - Python: 
     - python/index.md
     - Virtual Environment: python/virtualenv.md
+  - Proxmox:
+    - proxmox/index.md
+    - Notes: proxmox/notes.md
+    - CT: proxmox/ct.md
+    - VM: proxmox/vm.md
   - Windows:
     - windows/index.md
     - Apps: windows/apps.md
