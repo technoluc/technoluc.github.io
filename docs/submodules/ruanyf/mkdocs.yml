@@ -5,4 +5,4 @@ plugins:
     - awesome-pages
 
 nav:
-    -  ruanyf/README.md 
+    -  ...
