@@ -118,10 +118,6 @@ nav:
     - docker/index.md
     - Docker CLI: docker/docker-cli.md
     - Docker Compose: docker/docker-compose.md
-  - Excel:
-    - excel/index.md
-    - Addresses: excel/addresses.md
-    - Formulas: excel/formulas.md
   - Linux:
     - linux/index.md
     - Hostname: linux/set-hostname.md
@@ -142,6 +138,13 @@ nav:
     - misc/index.md
     - HTTP Status Codes: misc/http-status-codes.md
     - Nginx: misc/nginx.md
+  - Office:
+    - office/index.md
+    - Excel: 
+      - office/excel/index.md
+      - Addresses: office/excel/addresses.md
+      - Formulas: office/excel/formulas.md
+    - Outlook: office/outlook/index.md
   - Submodules:
     - submodules/index.md 
 #    - Simple Bash Scripts: '!include ./docs/submodules/simple-bash-scripts/mkdocs.yml'
