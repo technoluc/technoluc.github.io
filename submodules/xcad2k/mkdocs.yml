@@ -1,5 +1,5 @@
 site_name: docs
-docs_dir: ./docs
+docs_dir: ./docs1
 
 plugins:
     - search
