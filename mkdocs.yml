@@ -138,6 +138,7 @@ nav:
     - misc/index.md
     - HTTP Status Codes: misc/http-status-codes.md
     - Nginx: misc/nginx.md
+#    - cheat-sheets: '!include ./submodules/xcad2k/mkdocs.yml'
   - Office:
     - office/index.md
     - Excel: 
@@ -145,8 +146,8 @@ nav:
       - Addresses: office/excel/addresses.md
       - Formulas: office/excel/formulas.md
     - Outlook: office/outlook/index.md
-  - Submodules:
-    - submodules/index.md 
+#  - Submodules:
+#    - submodules/index.md 
 #    - Simple Bash Scripts: '!include ./docs/submodules/simple-bash-scripts/mkdocs.yml'
   - Proxmox:
     - proxmox/index.md

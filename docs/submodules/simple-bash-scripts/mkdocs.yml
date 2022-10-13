@@ -1,8 +1,0 @@
-site_name: Simple Bash Scripts
-
-plugins:
-    - search
-    - awesome-pages
-
-nav:
-    -  ...

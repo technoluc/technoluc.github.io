@@ -1,0 +1,5 @@
+site_name: xcad2k Cheat Sheets
+
+plugins:
+    - search
+    - awesome-pages
