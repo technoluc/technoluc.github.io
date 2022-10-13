@@ -146,6 +146,7 @@ nav:
       - Addresses: office/excel/addresses.md
       - Formulas: office/excel/formulas.md
     - Outlook: office/outlook/index.md
+      - Modern Auth: office/outlook/outlook-modern-auth.md
 #  - Submodules:
 #    - submodules/index.md 
 #    - Simple Bash Scripts: '!include ./docs/submodules/simple-bash-scripts/mkdocs.yml'
