@@ -1,4 +1,4 @@
-site_name: xcad2k
+site_name: docs
 
 plugins:
     - search
