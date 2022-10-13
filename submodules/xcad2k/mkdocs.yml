@@ -1,6 +1,8 @@
 site_name: xcad2kCheatSheets
-docs_dir: ./docs/
 
 plugins:
     - search
     - awesome-pages 
+    
+nav:
+    - ... 
