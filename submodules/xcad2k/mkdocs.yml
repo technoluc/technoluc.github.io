@@ -1,10 +1,9 @@
 site_name: docs
-docs_dir: docs
+docs_dir: ./docs
 
 plugins:
     - search
     - awesome-pages 
 
 nav:
-    - README.md
-    - ...
+    - README.md 
