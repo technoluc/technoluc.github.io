@@ -1,5 +1,5 @@
-site_name: docs
-docs_dir: ./docs1
+site_name: cheat-sheets
+docs_dir: docs
 
 plugins:
     - search
