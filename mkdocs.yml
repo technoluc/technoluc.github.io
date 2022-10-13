@@ -145,7 +145,8 @@ nav:
       - office/excel/index.md
       - Addresses: office/excel/addresses.md
       - Formulas: office/excel/formulas.md
-    - Outlook: office/outlook/index.md
+    - Outlook: 
+      - office/outlook/index.md
       - Modern Auth: office/outlook/outlook-modern-auth.md
 #  - Submodules:
 #    - submodules/index.md 
