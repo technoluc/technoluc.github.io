@@ -1,5 +1,5 @@
 site_name: xcad2k
-docs_dir: ./submodules/xcad2k/docs
+docs_dir: submodules/xcad2k/docs
 
 plugins:
     - search
