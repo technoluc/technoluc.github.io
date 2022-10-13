@@ -4,3 +4,6 @@ docs_dir: ./submodules/xcad2k/docs
 plugins:
     - search
     - awesome-pages 
+
+nav:
+    - ... 
