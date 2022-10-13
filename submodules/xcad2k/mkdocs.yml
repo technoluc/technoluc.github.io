@@ -1,8 +1,8 @@
-site_name: docs
+site_name: xcad2k
+docs_dir: ./docs
 
 plugins:
     - search
     - awesome-pages 
     
 nav:
-    - ... 
