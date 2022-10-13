@@ -1,0 +1,3 @@
+[submodule "submodules/xcad2k/docs"]
+	path = submodules/xcad2k/docs
+	url = git@github.com:xcad2k/cheat-sheets.git
