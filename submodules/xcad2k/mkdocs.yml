@@ -4,5 +4,3 @@ docs_dir: ./docs
 plugins:
     - search
     - awesome-pages 
-    
-nav:
