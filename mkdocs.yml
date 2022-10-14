@@ -115,7 +115,7 @@ nav:
     - Extended Cheatsheet: bash/cheatsheet.md
     - For.. Loops: bash/loops.md
     - Scripts: bash/scripts.md
-    - Simple Bash Scripts: '!include ./submodules/ruanyf/mkdocs.yml' 
+#    - Simple Bash Scripts: '!include ./submodules/ruanyf/mkdocs.yml' 
     - Useful Commands: bash/useful_commands.md
   - Docker: 
     - docker/index.md
@@ -168,7 +168,7 @@ nav:
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
     - Apps: windows/apps.md
-    - Microsoft Activation Scripts: '!include ./submodules/massgravel/mkdocs.yml'
+#    - Microsoft Activation Scripts: '!include ./submodules/massgravel/mkdocs.yml'
     - Nirsoft: windows/nirsoft.md
     - Path: windows/path.md
     - Printers: windows/printers.md
