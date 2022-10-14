@@ -139,9 +139,10 @@ nav:
     - MkDocs: mkdocs/index.md
   - Miscellaneous:
     - misc/index.md
-    - HTTP Status Codes: misc/http-status-codes.md
-    - Nginx: misc/nginx.md
-    - cheat-sheets: '!include ./submodules/xcad2k/mkdocs.yml'
+#    - HTTP Status Codes: misc/http-status-codes.md
+#    - Nginx: misc/nginx.md
+#    - cheat-sheets: '!include ./submodules/xcad2k/mkdocs.yml'
+    - '*include ./submodules/*/mkdocs.yml'
   - Office:
     - office/index.md
     - Excel: 
