@@ -115,8 +115,8 @@ nav:
     - Extended Cheatsheet: bash/cheatsheet.md
     - For.. Loops: bash/loops.md
     - Scripts: bash/scripts.md
-#    - Simple Bash Scripts: '!include ./submodules/ruanyf/mkdocs.yml' 
     - Useful Commands: bash/useful_commands.md
+#    - Simple Bash Scripts: '!include ./submodules/ruanyf/mkdocs.yml' 
   - Docker: 
     - docker/index.md
     - Docker CLI: docker/docker-cli.md
@@ -137,12 +137,9 @@ nav:
     - Cheatsheet 1: markdown/markdown-cheat-sheet.md
     - Cheatsheet 2: markdown/markdown-cheatsheet.md
     - MkDocs: mkdocs/index.md
-  - Miscellaneous:
-#    - misc/index.md
-#    - HTTP Status Codes: misc/http-status-codes.md
-#    - Nginx: misc/nginx.md
+  - Miscellaneous: '*include ./submodules/*/mkdocs.yml'
 #    - cheat-sheets: '!include ./submodules/xcad2k/mkdocs.yml'
-    - Other Resources: '*include ./submodules/*/mkdocs.yml'
+#    - Other Resources: '*include ./submodules/*/mkdocs.yml'
   - Office:
     - office/index.md
     - Excel: 
@@ -152,9 +149,6 @@ nav:
     - Outlook: 
       - office/outlook/index.md
       - Modern Auth: office/outlook/outlook-modern-auth.md
-#  - Submodules:
-#    - submodules/index.md 
-#    - Simple Bash Scripts: '!include ./docs/submodules/simple-bash-scripts/mkdocs.yml'
   - Proxmox:
     - proxmox/index.md
     - CT: proxmox/ct.md
@@ -168,9 +162,9 @@ nav:
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
     - Apps: windows/apps.md
-#    - Microsoft Activation Scripts: '!include ./submodules/massgravel/mkdocs.yml'
     - Nirsoft: windows/nirsoft.md
     - Path: windows/path.md
     - Printers: windows/printers.md
     - SFC: windows/sfc.md
     - WinGet: windows/winget.md
+#    - Microsoft Activation Scripts: '!include ./submodules/massgravel/mkdocs.yml'
