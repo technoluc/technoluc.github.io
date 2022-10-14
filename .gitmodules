@@ -7,3 +7,6 @@
 [submodule "submodules/massgravel/docs"]
 	path = submodules/massgravel/docs
 	url = git@github.com:massgravel/Microsoft-Activation-Scripts.git
+[submodule "submodules/onceupon/docs"]
+	path = submodules/onceupon/docs
+	url = git@github.com:onceupon/Bash-Oneliner.git

@@ -1,0 +1,5 @@
+site_name: "SimpleBashScripts"
+
+plugins:
+    - search
+    - awesome-pages 
