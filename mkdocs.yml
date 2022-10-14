@@ -113,6 +113,7 @@ nav:
     - Extended Cheatsheet: bash/cheatsheet.md
     - For.. Loops: bash/loops.md
     - Scripts: bash/scripts.md
+    - Simple Bash Scripts: '!include ./submodules/ruanyf/mkdocs.yml' 
     - Useful Commands: bash/useful_commands.md
   - Docker: 
     - docker/index.md
