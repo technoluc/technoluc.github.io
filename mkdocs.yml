@@ -165,6 +165,7 @@ nav:
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
     - Apps: windows/apps.md
+    - Microsoft Activation Scripts: '!include ./submodules/massgravel/mkdocs.yml'
     - Nirsoft: windows/nirsoft.md
     - Path: windows/path.md
     - Printers: windows/printers.md

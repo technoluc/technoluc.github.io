@@ -4,3 +4,6 @@
 [submodule "submodules/ruanyf/docs"]
 	path = submodules/ruanyf/docs
 	url = https://technoluc@github.com/ruanyf/simple-bash-scripts
+[submodule "submodules/massgravel/docs"]
+	path = submodules/massgravel/docs
+	url = git@github.com:massgravel/Microsoft-Activation-Scripts.git
