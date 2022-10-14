@@ -8,7 +8,6 @@
 | [Linux](linux/index.md)        |
 | [macOS](macos/index.md)        |
 | [Markdown](markdown/index.md)  |
-| [Miscellaneous](misc/index.md) |
 | [MkDocs](mkdocs/index.md)      |
 | [Office](office/index.md)      |
 | [Proxmox](proxmox/index.md)    |
