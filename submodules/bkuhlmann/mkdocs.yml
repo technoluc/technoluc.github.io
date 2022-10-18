@@ -1,0 +1,10 @@
+site_name: "MacOSConfig"
+# docs_dir: docs
+
+plugins:
+    - search
+    - awesome-pages 
+
+# nav:
+#    - README.md
+#    - ...
