@@ -138,7 +138,9 @@ nav:
     - Cheatsheet 1: markdown/markdown-cheat-sheet.md
     - Cheatsheet 2: markdown/markdown-cheatsheet.md
     - MkDocs: mkdocs/index.md
-  - Miscellaneous: '*include ./submodules/*/mkdocs.yml'
+  - Miscellaneous: 
+    - submodules/index.md
+    - '*include ./submodules/*/mkdocs.yml'
 #    - cheat-sheets: '!include ./submodules/xcad2k/mkdocs.yml'
   - Office:
     - office/index.md
