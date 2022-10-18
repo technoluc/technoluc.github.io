@@ -615,3 +615,93 @@ source: [bradp/setup.sh](https://gist.github.com/bradp/bea76b16d3325f5c47d4)
       defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
       defaults write com.apple.ActivityMonitor SortDirection -int 0
       ```
+      
+=== "defaults_luc.sh"
+      ```bash
+      #!/bin/env zsh
+      
+      # Finder: Show hidden files by default
+      defaults write com.apple.finder AppleShowAllFiles -bool true
+      
+      # Finder: Show all filename extensions
+      defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+      
+      # Finder: Show status bar
+      defaults write com.apple.finder ShowStatusBar -bool true
+      
+      # Finder: Show path bar
+      defaults write com.apple.finder ShowPathbar -bool true
+      
+      # Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
+      sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+      
+      #"Enabling snap-to-grid for icons on the desktop and in other icon views"
+      /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+      /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+      /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+      
+      # Install xcode
+      echo "Installing xcode-stuff"
+      xcode-select --install
+      
+      # Check for Homebrew,
+      # Install if we don't have it
+      if test ! $(which brew); then
+      echo "Installing homebrew..."
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      fi
+      
+      # Update homebrew recipes
+      echo "Updating homebrew..."
+      brew update
+      
+      echo "Installing Git..."
+      brew install git
+      
+      echo "Git config"
+      
+      git config --global user.name "Brad Parbs"
+      git config --global user.email brad@bradparbs.com
+      
+      echo "Installing brew git utilities..."
+      brew install git-extras
+      brew install legit
+      brew install git-flow
+      
+      #Install Zsh & Oh My Zsh
+      echo "Installing Oh My ZSH..."
+      curl -L http://install.ohmyz.sh | sh
+      
+      # Apps
+      apps=(
+        alfred
+        bartender
+        bettertouchtool
+        cleanmymac
+        google-chrome
+        spotify
+        raycast
+        iterm2
+        suspicious-package
+        mas
+      )
+  
+      # Install apps to /Applications
+      # Default is: /Users/$user/Applications
+      echo "installing apps with Cask..."
+      brew cask install --appdir="/Applications" ${apps[@]}
+  
+      brew cask alfred link
+  
+      brew cask cleanup
+      brew cleanup
+      
+      #"Allow text selection in Quick Look"
+      defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+      
+      #"Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
+      defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+      
+      
+      ```
+      
