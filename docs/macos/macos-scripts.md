@@ -307,3 +307,311 @@ source: [bradp/setup.sh](https://gist.github.com/bradp/bea76b16d3325f5c47d4)
 
     echo "Done!"
     ```
+
+=== "RenameMacUserNameAndHomeDirectory.sh"
+      ```bash
+      #!/bin/bash
+      ###############################################################################
+      # Version 1.3
+      #
+      # RenameMacUserNameAndHomeDirectory.sh - Script to rename the username of a
+      # user account on MacOS. The script updates the users record name (username),
+      # and home directory.  If the user receiving the name change is signed in
+      # they will be signed out.
+      #
+      # Example usage: sudo sh RenameMacUserNameAndHomeDirectory.sh cat dog
+      #
+      # Above example would rename account cat to dog
+      #
+      # NOTE: SCRIPT MUST BE RUN AS ROOT
+      # NOTE: TERMINAL MUST BE GRANTED FULL DISK ACCESS TO RUN SUCCESSFULLY
+      # NOTE: SYSTEM WILL RESTART AFTER SCRIPT IS RUN
+      #
+      # Questions or issues with the operation of the script, please contact
+      # support@jumpcloud.com
+      ###############################################################################
+
+      # Logging file created in same directory as this script
+      d=$(date +%Y-%m-%d--%I:%M:%S)
+      log="${d} JC_RENAME:"
+
+      # Create the log file
+      touch JC_RENAME.log
+      # Open permissions to account for all error catching
+      chmod 777 JC_RENAME.log
+
+      # Begin Logging
+      echo "${log} ## Rename Script Begin ##" 2>&1 | tee -a JC_RENAME.log
+
+      # Ensures that script is run as ROOT
+      if [[ "${UID}" != 0 ]]; then
+        echo "${log} Error: $0 script must be run as root" 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      # Ensure Terminal has been granted Full Disk Access
+      sqlite3 /Library/Application\ Support/com.apple.TCC/TCC.db 'SELECT * from access'
+      # accessStatus=(${access} | grep "unable")
+      if [[ $? -ne 0 ]]; then
+        echo "${log} Error: Terminal does not appear to have the correct access!" 2>&1 | tee -a JC_RENAME.log
+        echo "${log} Grant terminal Full Disk Access and try again." 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+      # Ensures that the system is not domain bound
+      readonly domainBoundCheck=$(dsconfigad -show)
+      if [[ "${domainBoundCheck}" ]]; then
+        echo "${log} Error: Cannot run on domain bound system. Unbind system and try again." 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      oldUser=$1
+      newUser=$2
+
+      # Ensures that parameters are entered
+      if [[ ${#} -ne 2 ]]; then
+        echo "${log} Error: $0 requires two parameters $oldUserName $newUserName" 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      # Test to ensure logged in user is not being renamed
+      readonly loggedInUser=$(ls -la /dev/console | cut -d " " -f 4)
+      if [[ "${loggedInUser}" == "${oldUser}" ]]; then
+        echo "${log} Error: Cannot rename active GUI logged in user. Log in with another admin account and try again." 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      # Verify valid usernames
+      if [[ -z "${newUser}" ]]; then
+        echo "${log} Error: New user name must not be empty!" 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      # Test to ensure account update is needed
+      if [[ "${oldUser}" == "${newUser}" ]]; then
+        echo "${log} Error: Account ${oldUser}" is the same name "${newUser}" 2>&1 | tee -a JC_RENAME.log
+        exit 0
+      fi
+
+      # Query existing user accounts
+      readonly existingUsers=($(dscl . -list /Users | grep -Ev "^_|com\..*|root|nobody|daemon|\/" | cut -d, -f1 | sed 's|CN=||g'))
+
+      # Ensure old user account is correct and account exists on system
+      if [[ ! " ${existingUsers[@]} " =~ " ${oldUser} " ]]; then
+        echo "${log} Error: ${oldUser} account not present on system to update" 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      # Ensure new user account is not already in use
+      if [[ " ${existingUsers[@]} " =~ " ${newUser} " ]]; then
+        echo "${log} Error: ${newUser} account already present on system. Cannot add duplicate" 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      # Query existing home folders
+      readonly existingHomeFolders=($(ls /Users))
+
+      # Ensure existing home folder is not in use
+      if [[ " ${existingHomeFolders[@]} " =~ " ${newUser} " ]]; then
+        echo "${log} Error: ${newUser} home folder already in use on system. Cannot add duplicate" 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      # Check if username differs from home directory name
+      actual=$(eval echo "~${oldUser}")
+      if [[ "/Users/${oldUser}" != "$actual" ]]; then
+        echo "${log} Error: Username differs from home directory name!" 2>&1 | tee -a JC_RENAME.log
+        echo "${log} Error: home directory: ${actual} should be: /Users/${oldUser}, aborting." 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      # Checks if user is logged in
+      loginCheck=$(ps -Ajc | grep -w ${oldUser} | grep loginwindow | awk '{print $2}')
+
+      # Logs out user if they are logged in
+      timeoutCounter='0'
+      while [[ "${loginCheck}" ]]; do
+        echo "${log} Notice: ${oldUser} account logged in. Logging user off to complete username update" 2>&1 | tee -a JC_RENAME.log
+        sudo launchctl bootout gui/$(id -u ${oldUser})
+        Sleep 5
+        loginCheck=$(ps -Ajc | grep -w ${oldUser} | grep loginwindow | awk '{print $2}')
+        timeoutCounter=$((${timeoutCounter} + 1))
+        if [[ ${timeoutCounter} -eq 4 ]]; then
+          echo "${log} Error: Timeout unable to log out ${oldUser} account" 2>&1 | tee -a JC_RENAME.log
+          exit 1
+        fi
+      done
+
+      # Captures current NFS home directory
+      readonly origHomeDir=$(dscl . -read "/Users/${oldUser}" NFSHomeDirectory | awk '{print $2}' -)
+
+      if [[ -z "${origHomeDir}" ]]; then
+        echo "${log} Error: Cannot obtain the original home directory name, is the ${oldUser} name correct?" 2>&1 | tee -a JC_RENAME.log
+        exit 1
+      fi
+
+      # Updates NFS home directory
+      sudo dscl . -change "/Users/${oldUser}" NFSHomeDirectory "${origHomeDir}" "/Users/${newUser}"
+
+      if [[ $? -ne 0 ]]; then
+        echo "${log} Error: Could not rename the user's home directory pointer, aborting further changes! - err=$?" 2>&1 | tee -a JC_RENAME.log
+        echo "${log} Notice: Reverting Home Directory changes" 2>&1 | tee -a JC_RENAME.log
+        sudo dscl . -change "/Users/${oldUser}" NFSHomeDirectory "/Users/${newUser}" "${origHomeDir}"
+        exit 1
+      fi
+
+      # Updates name of home directory to new username
+      mv "${origHomeDir}" "/Users/${newUser}"
+
+      if [[ $? -ne 0 ]]; then
+        echo "${log} Error: Could not rename the user's home directory in /Users" 2>&1 | tee -a JC_RENAME.log
+        echo "${log} Notice: Reverting Home Directory changes" 2>&1 | tee -a JC_RENAME.log
+        mv "/Users/${newUser}" "${origHomeDir}"
+        sudo dscl . -change "/Users/${oldUser}" NFSHomeDirectory "/Users/${newUser}" "${origHomeDir}"
+        exit 1
+      fi
+
+      # Actual username change
+      sudo dscl . -change "/Users/${oldUser}" RecordName "${oldUser}" "${newUser}"
+
+      if [[ $? -ne 0 ]]; then
+        echo "${log} Error: Could not rename the user's RecordName in dscl - the user should still be able to login, but with user name ${oldUser}" 2>&1 | tee -a JC_RENAME.log
+        echo "${log} Notice: Reverting username change" 2>&1 | tee -a JC_RENAME.log
+        sudo dscl . -change "/Users/${oldUser}" RecordName "${newUser}" "${oldUser}"
+        echo "${log} Notice: Reverting Home Directory changes" 2>&1 | tee -a JC_RENAME.log
+        mv "/Users/${newUser}" "${origHomeDir}"
+        sudo dscl . -change "/Users/${oldUser}" NFSHomeDirectory "/Users/${newUser}" "${origHomeDir}"
+        exit 1
+      fi
+
+      # Links old home directory to new. Fixes dock mapping issue
+      ln -s "/Users/${newUser}" "${origHomeDir}"
+
+      # Success message
+      read -r -d '' successOutput <<EOM
+      ${log} Success ${oldUser} username has been updated to ${newUser}
+      ${log} Folder "${origHomeDir}" has been renamed to "/Users/${newUser}"
+      ${log} RecordName: ${newUser}
+      ${log} NFSHomeDirectory: "/Users/${newUser}"
+      ${log} SYSTEM RESTARTING in 5 seconds to complete username update.
+      EOM
+
+      echo "${successOutput}" 2>&1 | tee -a JC_RENAME.log
+
+      # System restart
+      Sleep 5
+      osascript -e 'tell application "System Events" to restart'
+      exit 0
+      ```
+
+=== "defaults.sh"
+      ```bash
+      #!/usr/bin/env bash
+
+      # Adapted from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+
+      set -x
+
+      if [[ -z "${CI}" ]]; then
+        sudo -v # Ask for the administrator password upfront
+        # Keep-alive: update existing `sudo` time stamp until script has finished
+        while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+      fi
+
+      # Trackpad: enable tap to click for this user and for the login screen
+      defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+      defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+      defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+      # Disable the sound effects on boot
+      sudo nvram SystemAudioVolume=" "
+
+      # Close any open System Preferences panes, to prevent them from overriding settings we’re about to change
+      osascript -e 'tell application "System Preferences" to quit'
+
+      # Expand save panel by default
+      defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+      defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+      # Expand print panel by default
+      defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+      defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+      # Save to disk (not to iCloud) by default
+      defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+      # Automatically quit printer app once the print jobs complete
+      defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+      # Disable the “Are you sure you want to open this application?” dialog
+      defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+      # Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
+      sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+      # Disable auto corrections
+      defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false      # Disable automatic capitalization
+      defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false    # Disable smart dashes
+      defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false  # Disable automatic period substitution
+      defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false   # Disable smart quotes
+      defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false  # Disable auto-correct
+
+      # Enable full keyboard access for all controls e.g. enable Tab in modal dialogs
+      defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+      # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+      defaults write com.apple.finder QuitMenuItem -bool true
+
+      # Set Desktop as the default location for new Finder windows
+      defaults write com.apple.finder NewWindowTarget -string "PfDe"
+      defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+
+      defaults write com.apple.finder AppleShowAllFiles -bool true        # Finder: Show hidden files by default
+      defaults write NSGlobalDomain AppleShowAllExtensions -bool true     # Finder: Show all filename extensions
+      defaults write com.apple.finder ShowStatusBar -bool true            # Finder: Show status bar
+      defaults write com.apple.finder ShowPathbar -bool true              # Finder: Show path bar
+      defaults write com.apple.finder _FXShowPosixPathInTitle -bool true  # Finder: Display full POSIX path as window title
+      defaults write com.apple.finder _FXSortFoldersFirst -bool true      # Finder: Keep folders on top when sorting by name
+      chflags nohidden ~/Library     # Show the ~/Library folder
+      sudo chflags nohidden /Volumes # Show the /Volumes folder
+
+      # Avoid creating .DS_Store files on network or USB volumes
+      defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+      defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+      # Automatically open a new Finder window when a volume is mounted
+      defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+      defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+      defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+
+      # Use list view in all Finder windows by default (codes for the other view modes: `icnv`, `clmv`, `Flwv`)
+      defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+      # Expand the following File Info panes:
+      # “General”, “Open with”, and “Sharing & Permissions”
+      defaults write com.apple.finder FXInfoPanesExpanded -dict \
+        General -bool true \
+        OpenWith -bool true \
+        Privileges -bool true
+
+      # Don’t automatically rearrange Spaces based on most recent use
+      defaults write com.apple.dock mru-spaces -bool false
+
+      # Automatically hide and show the Dock
+      defaults write com.apple.dock autohide -bool true
+
+      # Prevent Time Machine from prompting to use new hard drives as backup volume
+      defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+      # Show the main window when launching Activity Monitor
+      defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+
+      # Visualize CPU usage in the Activity Monitor Dock icon
+      defaults write com.apple.ActivityMonitor IconType -int 5
+
+      # Show all processes in Activity Monitor
+      defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+      # Sort Activity Monitor results by CPU usage
+      defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+      defaults write com.apple.ActivityMonitor SortDirection -int 0
+      ```
