@@ -166,4 +166,3 @@ nav:
     - Printers: windows/printers.md
     - SFC: windows/sfc.md
     - WinGet: windows/winget.md
-#    - Microsoft Activation Scripts: '!include ./submodules/massgravel/mkdocs.yml'
