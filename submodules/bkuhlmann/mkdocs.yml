@@ -1,10 +1,5 @@
-site_name: "MacOSConfig"
-# docs_dir: docs
+# site_name: "MacOSConfig"
 
-plugins:
-    - search
-    - awesome-pages 
-
-# nav:
-#    - README.md
-#    - ...
+# plugins:
+#    - search
+#    - awesome-pages 
