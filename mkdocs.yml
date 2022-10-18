@@ -128,9 +128,10 @@ nav:
     - NFS: linux/nfs.md
     - Sed: linux/sed.md
     - Timezone: linux/set-timezone.md
-  - MacOS:
+  - macOS:
     - macos/index.md
     - Shortcuts: macos/macos-shortcuts.md
+    - Scripts: macos/macos-scripts.md
     - VSCode Shortcuts: macos/vscode-macos-shortcuts.md
   - Markdown:
     - markdown/index.md
