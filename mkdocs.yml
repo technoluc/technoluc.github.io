@@ -139,7 +139,6 @@ nav:
     - MkDocs: mkdocs/index.md
   - Miscellaneous: '*include ./submodules/*/mkdocs.yml'
 #    - cheat-sheets: '!include ./submodules/xcad2k/mkdocs.yml'
-#    - Other Resources: '*include ./submodules/*/mkdocs.yml'
   - Office:
     - office/index.md
     - Excel: 
