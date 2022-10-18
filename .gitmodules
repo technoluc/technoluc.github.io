@@ -13,3 +13,6 @@
 [submodule "submodules/bkuhlmann/docs"]
 	path = submodules/bkuhlmann/docs
 	url = https://github.com/bkuhlmann/mac_os-config
+[submodule "submodules/tiiiecherle/docs"]
+	path = submodules/tiiiecherle/docs
+	url = git@github.com:tiiiecherle/osx_install_config.git
