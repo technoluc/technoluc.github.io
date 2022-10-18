@@ -1,0 +1,5 @@
+site_name: "osxInstallConfig"
+
+plugins:
+    - search
+    - awesome-pages 
