@@ -679,16 +679,22 @@ curl -L http://install.ohmyz.sh | sh
 
 # Apps
 apps=(
-  alfred
-  bartender
-  bettertouchtool
-  cleanmymac
-  google-chrome
-  spotify
-  raycast
-  iterm2
-  suspicious-package
-  mas
+	alfred
+        alt-tab
+        bartender
+        bettertouchtool
+        cleanmymac
+        cyberduck
+        devtoys
+        fig
+        google-chrome
+        iterm2
+        mas
+        raycast
+        spotify
+        suspicious-package
+        thefuck
+	visual-studio-code
 )
 
 # Install apps to /Applications
