@@ -831,3 +831,9 @@ echo "Deleting working directory '$tempDirectory' and its contents"
 
 exit $exitCode
 ```
+
+## Install Office 365 script
+
+```bash
+/usr/bin/curl --location --silent "https://go.microsoft.com/fwlink/?linkid=2009112" -o "O365BusinessPro.pkg" && /usr/sbin/installer -pkg "$linkID.pkg" -target /
+```
