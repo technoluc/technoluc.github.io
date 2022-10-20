@@ -631,27 +631,40 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 ## Defaults_luc
 
 ```bash
-#!/bin/env zsh
+#!/bin/env bash
 
 # Finder: Show hidden files by default
+echo "Finder: show hidden files"
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: Show all filename extensions
+echo "Finder: show file extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: Show status bar
+echo "Finder: show status bar"
 defaults write com.apple.finder ShowStatusBar -bool true
 
 # Finder: Show path bar
+echo "Finder: show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
 
 # Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
+echo "Enable admin info for login screen clock"
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
-#"Enabling snap-to-grid for icons on the desktop and in other icon views"
+# Enabling snap-to-grid for icons on the desktop and in other icon views
+echo "Enabling snap-to-grid for icon views"
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+# Change the Rows and Columns of Launchpad
+echo "set launchpad to 6 rows and 8 columns"
+defaults write com.apple.dock springboard-rows -int 6
+defaults write com.apple.dock springboard-columns -int 8
+defaults write com.apple.dock ResetLaunchPad -bool TRUE
+killall Dock
 
 # Install xcode
 echo "Installing xcode-stuff"
@@ -673,8 +686,8 @@ brew install git
 
 echo "Git config"
 
-git config --global user.name "Brad Parbs"
-git config --global user.email brad@bradparbs.com
+git config --global user.name "technoluc"
+git config --global user.email luc@technoluc.nl
 
 echo "Installing brew git utilities..."
 brew install git-extras
@@ -702,7 +715,7 @@ apps=(
         spotify
         suspicious-package
         thefuck
-	visual-studio-code
+	      visual-studio-code
 )
 
 # Install apps to /Applications
