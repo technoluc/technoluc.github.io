@@ -13,7 +13,6 @@ curl -OL https://github.com/Installomator/Installomator/raw/main/Installomator.s
 source: [bradp/setup.sh](https://gist.github.com/bradp/bea76b16d3325f5c47d4)
 
 ``` title=“setup.sh”
-
 --8<-- “docs/macos/setup.sh”
 ```
 
@@ -22,7 +21,6 @@ source: [bradp/setup.sh](https://gist.github.com/bradp/bea76b16d3325f5c47d4)
 source [TheJumpCloud/support](https://github.com/TheJumpCloud/support/blob/master/scripts/macos/RenameMacUserNameAndHomeDirectory.sh)
 
 ``` title=“RenameMacUserNameAndHomeDirectory.sh”
-
 --8<-- “docs/macos/RenameMacUserNameAndHomeDirectory.sh”
 ```
 
@@ -31,7 +29,6 @@ source [TheJumpCloud/support](https://github.com/TheJumpCloud/support/blob/maste
 source [pathikrit/mac-setup-script](https://github.com/pathikrit/mac-setup-script)
 
 ``` title=“defaults.sh”
-
 --8<-- “docs/macos/defaults.sh”
 ```
 
@@ -40,7 +37,6 @@ source [pathikrit/mac-setup-script](https://github.com/pathikrit/mac-setup-scrip
 source [talkingmoose/Download and Install Microsoft product.zsh](https://gist.github.com/talkingmoose/a16ca849416ce5ce89316bacd75fc91a)
 
 ``` title=“MicrosoftInstallScript.sh”
-
 --8<-- “docs/macos/MicrosoftInstallScript.sh”
 ```
 
