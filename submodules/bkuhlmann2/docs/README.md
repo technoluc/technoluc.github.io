@@ -12,7 +12,7 @@ Due to the amount of tooling used, the following features are broken
 down into subsections for easier navigation.
 
 Homebrew Formulas {#_homebrew_formulas}
-——————
+========
 
 Installs the following [formulas](https://brew.sh):
 
@@ -179,7 +179,7 @@ Installs the following [formulas](https://brew.sh):
 -   [Zoxide](https://github.com/ajeetdsouza/zoxide)
 
 Homebrew Casks {#_homebrew_casks}
-—————
+========
 
 Installs the following [casks](https://brew.sh):
 
@@ -273,7 +273,7 @@ Installs the following [casks](https://brew.sh):
 -   [Visual Studio Code](https://code.visualstudio.com)
 
 App Store Applications {#_app_store_applications}
--———————
+========
 
 Installs the following [App Store](https://www.apple.com/app-store)
 applications:
@@ -346,7 +346,7 @@ applications:
 -   [WiFi Explorer](https://www.adriangranados.com)
 
 Non-App Store Applications {#_non_app_store_applications}
-—————————
+========
 
 Installs the following macOS applications which are not located in the
 App Store:
@@ -360,7 +360,7 @@ App Store:
 -   [Sonos](https://www.sonos.com)
 
 Application Extensions {#_application_extensions}
--———————
+========
 
 Installs the following extensions to existing applications:
 
@@ -387,7 +387,7 @@ Installs the following extensions to existing applications:
 -   [Vim Unimpaired](https://github.com/tpope/vim-unimpaired)
 
 Node Packages {#_node_packages}
--————
+========
 
 Installs the following [Node](https://nodejs.org)
 [packages](https://www.npmjs.com):
@@ -397,7 +397,7 @@ Installs the following [Node](https://nodejs.org)
 -   [Elm Test](https://github.com/elm-explorations/test)
 
 Ruby Gems {#_ruby_gems}
-———
+========
 
 Installs the following [Ruby](https://www.ruby-lang.org)
 [gems](https://rubygems.org):
@@ -450,7 +450,7 @@ Installs the following [Ruby](https://www.ruby-lang.org)
 -   [YouPlot](https://github.com/red-data-tools/YouPlot)
 
 Rust Crates {#_rust_crates}
-————
+========
 
 Installs the following [Rust](https://www.rust-lang.org)
 [crates](https://crates.io):
@@ -512,7 +512,7 @@ Ensure you have the following in place for your Silicon machine:
     e.  Quit the utility and restart the machine.
 
 Install {#_install}
--——
+========
 
 1.  Create a [macOS Boot
     Disk](https://www.alchemists.io/projects/mac_os/#_boot_disk) and
@@ -529,7 +529,7 @@ Install {#_install}
     follow all prompts.
 
 Post-Install {#_post_install}
-————
+========
 
 The following are additional steps, not easily automated, that are worth
 completing after the install scripts have completed:
@@ -679,7 +679,7 @@ completing after the install scripts have completed:
         schedule.
 
 Keyboard Shortcuts {#_keyboard_shortcuts}
-——————
+========
 
 Several applications provide global hotkey support. These are the
 associations I use (which are also captured in the `+restore.bom+` as
@@ -736,7 +736,7 @@ well):
 -   **OPTION + SPACE:** Alfred (open)
 
 Newsyslog {#_newsyslog}
-———
+========
 
 Native to macOS,
 [newsyslog](https://www.freebsd.org/cgi/man.cgi?newsyslog.conf(5)) can
@@ -800,7 +800,7 @@ the following content:
 That’s it. System-wide log rotation is setup for your projects.
 
 Customization {#_customization}
--————
+========
 
 While this project’s configuration is opinionated and tailored for my
 setup, you can easily fork this project and customize it for your
