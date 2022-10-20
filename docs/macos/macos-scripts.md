@@ -870,6 +870,6 @@ exit $exitCode
 
 ## TL script
 
-``` title=".browserslistrc"
---8<-- ".browserslistrc"
+``` title="defaults_luc.sh"
+--8<-- "defaults_luc.sh"
 ```
