@@ -53,7 +53,6 @@ source [talkingmoose/Download and Install Microsoft product.zsh](https://gist.gi
 
 ## TL defaults
 
-``` title=“defaults_luc.sh”
-
---8<-- “docs/macos/defaults_luc.sh”
+``` title="defaults_luc.sh"
+--8<-- "docs/macos/defaults_luc.sh"
 ```
