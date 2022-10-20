@@ -316,6 +316,8 @@ echo "Done!"
 
 ## RenameMacUserNameAndHomeDirectory
 
+source [TheJumpCloud/support](https://github.com/TheJumpCloud/support/blob/master/scripts/macos/RenameMacUserNameAndHomeDirectory.sh)
+
 ```bash
 #!/bin/bash
 ###############################################################################
@@ -511,6 +513,8 @@ exit 0
 ```
 
 ## Defaults
+
+source [pathikrit/mac-setup-script](https://github.com/pathikrit/mac-setup-script)
 
 ```bash
 #!/usr/bin/env bash
@@ -721,6 +725,8 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 ## Download and Install Microsoft products
 
+source [talkingmoose/Download and Install Microsoft product.zsh](https://gist.github.com/talkingmoose/a16ca849416ce5ce89316bacd75fc91a)
+
 ```bash
 #!/bin/zsh
 
@@ -843,6 +849,7 @@ exit $exitCode
 ```
 
 ## Install Office 365 script
+
 
 ```bash
 /usr/bin/curl --location --silent "https://go.microsoft.com/fwlink/?linkid=2009112" -o "O365BusinessPro.pkg" && /usr/sbin/installer -pkg "O365BusinessPro.pkg" -target /
