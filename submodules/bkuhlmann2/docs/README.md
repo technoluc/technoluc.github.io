@@ -5,14 +5,13 @@ upon the [macOS](https://www.alchemists.io/projects/mac_os) project.
 Should the configuration provided by this project not be to your liking,
 feel free to fork and customize for your specific needs.
 
-Features {#_features}
-========
+# Features {#_features}
 
 Due to the amount of tooling used, the following features are broken
 down into subsections for easier navigation.
 
-Homebrew Formulas {#_homebrew_formulas}
-========
+## Homebrew Formulas {#_homebrew_formulas}
+
 
 Installs the following [formulas](https://brew.sh):
 
@@ -178,8 +177,8 @@ Installs the following [formulas](https://brew.sh):
 
 -   [Zoxide](https://github.com/ajeetdsouza/zoxide)
 
-Homebrew Casks {#_homebrew_casks}
-========
+## Homebrew Casks {#_homebrew_casks}
+
 
 Installs the following [casks](https://brew.sh):
 
@@ -272,8 +271,8 @@ Installs the following [casks](https://brew.sh):
 
 -   [Visual Studio Code](https://code.visualstudio.com)
 
-App Store Applications {#_app_store_applications}
-========
+## App Store Applications {#_app_store_applications}
+
 
 Installs the following [App Store](https://www.apple.com/app-store)
 applications:
@@ -345,8 +344,7 @@ applications:
 
 -   [WiFi Explorer](https://www.adriangranados.com)
 
-Non-App Store Applications {#_non_app_store_applications}
-========
+## Non-App Store Applications {#_non_app_store_applications}
 
 Installs the following macOS applications which are not located in the
 App Store:
@@ -359,8 +357,8 @@ App Store:
 
 -   [Sonos](https://www.sonos.com)
 
-Application Extensions {#_application_extensions}
-========
+## Application Extensions {#_application_extensions}
+
 
 Installs the following extensions to existing applications:
 
@@ -386,8 +384,7 @@ Installs the following extensions to existing applications:
 
 -   [Vim Unimpaired](https://github.com/tpope/vim-unimpaired)
 
-Node Packages {#_node_packages}
-========
+## Node Packages {#_node_packages}
 
 Installs the following [Node](https://nodejs.org)
 [packages](https://www.npmjs.com):
@@ -396,8 +393,7 @@ Installs the following [Node](https://nodejs.org)
 
 -   [Elm Test](https://github.com/elm-explorations/test)
 
-Ruby Gems {#_ruby_gems}
-========
+## Ruby Gems {#_ruby_gems}
 
 Installs the following [Ruby](https://www.ruby-lang.org)
 [gems](https://rubygems.org):
@@ -449,8 +445,7 @@ Installs the following [Ruby](https://www.ruby-lang.org)
 
 -   [YouPlot](https://github.com/red-data-tools/YouPlot)
 
-Rust Crates {#_rust_crates}
-========
+## Rust Crates {#_rust_crates}
 
 Installs the following [Rust](https://www.rust-lang.org)
 [crates](https://crates.io):
@@ -459,8 +454,8 @@ Installs the following [Rust](https://www.rust-lang.org)
 
 -   [Silicon](https://github.com/Aloxaf/silicon)
 
-Requirements {#_requirements}
-============
+# Requirements {#_requirements}
+
 
 1.  Apple Silicon hardware.
 
@@ -468,8 +463,7 @@ Requirements {#_requirements}
 
 3.  [Xcode](https://developer.apple.com/xcode)
 
-Setup {#_setup}
-=====
+# Setup {#_setup}
 
 To install, run:
 
@@ -481,14 +475,12 @@ git checkout 22.4.0
 -—
 ```
 
-Usage {#_usage}
-=====
+# Usage {#_usage}
 
 The following will walk you through the steps of
 installing/re-installing your machine.
 
-Pre-Install {#_pre_install}
-————
+## Pre-Install {#_pre_install}
 
 Ensure you have the following in place for your Silicon machine:
 
@@ -511,8 +503,7 @@ Ensure you have the following in place for your Silicon machine:
 
     e.  Quit the utility and restart the machine.
 
-Install {#_install}
-========
+## Install {#_install}
 
 1.  Create a [macOS Boot
     Disk](https://www.alchemists.io/projects/mac_os/#_boot_disk) and
@@ -528,8 +519,7 @@ Install {#_install}
     Install](https://www.alchemists.io/projects/mac_os#_usage) and
     follow all prompts.
 
-Post-Install {#_post_install}
-========
+## Post-Install {#_post_install}
 
 The following are additional steps, not easily automated, that are worth
 completing after the install scripts have completed:
@@ -678,8 +668,7 @@ completing after the install scripts have completed:
     -   Rename old backup, create new backup, and set frequency
         schedule.
 
-Keyboard Shortcuts {#_keyboard_shortcuts}
-========
+# Keyboard Shortcuts {#_keyboard_shortcuts}
 
 Several applications provide global hotkey support. These are the
 associations I use (which are also captured in the `+restore.bom+` as
@@ -735,8 +724,7 @@ well):
 
 -   **OPTION + SPACE:** Alfred (open)
 
-Newsyslog {#_newsyslog}
-========
+# Newsyslog {#_newsyslog}
 
 Native to macOS,
 [newsyslog](https://www.freebsd.org/cgi/man.cgi?newsyslog.conf(5)) can
@@ -799,8 +787,7 @@ the following content:
 
 That’s it. System-wide log rotation is setup for your projects.
 
-Customization {#_customization}
-========
+# Customization {#_customization}
 
 While this project’s configuration is opinionated and tailored for my
 setup, you can easily fork this project and customize it for your
@@ -816,8 +803,7 @@ suffix inform the installer what to care about. Removing/commenting out
 these applications/extensions within the `+settings.sh+` file will cause
 the installer to skip these applications/extensions.
 
-Development {#_development}
-===========
+# Development {#_development}
 
 To contribute, run:
 
