@@ -1,8 +1,12 @@
 # macOS Scripts
 
-## Mac setup script
+## Installomator
 
-source: [bradp/setup.sh](https://gist.github.com/bradp/bea76b16d3325f5c47d4)
+source: [Installomator/Installomator](https://github.com/Installomator/Installomator)
+
+```bash
+curl -OL https://github.com/Installomator/Installomator/raw/main/Installomator.sh && sudo ./Installomator.sh microsoftofficebusinesspro DEBUG=0
+```
 
 ## setup.sh 
 
