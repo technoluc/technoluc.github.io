@@ -1,0 +1,5 @@
+site_name: "Installomator"
+
+plugins:
+    - search
+    - awesome-pages 

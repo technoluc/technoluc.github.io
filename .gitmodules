@@ -16,3 +16,6 @@
 [submodule "submodules/tiiiecherle/docs"]
 	path = submodules/tiiiecherle/docs
 	url = git@github.com:tiiiecherle/osx_install_config.git
+[submodule "submodules/installomator/docs"]
+	path = submodules/installomator/docs
+	url = git@github.com:Installomator/Installomator.git
