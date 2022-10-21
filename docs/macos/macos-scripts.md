@@ -4,21 +4,26 @@
 
 source: [Installomator/Installomator](https://github.com/Installomator/Installomator)
 
+
 ```bash
 curl -OL https://github.com/Installomator/Installomator/raw/main/Installomator.sh && sudo ./Installomator.sh microsoftofficebusinesspro DEBUG=0
 ```
+
 
 ## setup.sh 
 
 source: [bradp/setup.sh](https://gist.github.com/bradp/bea76b16d3325f5c47d4)
 
+
 ``` title=“setup.sh”
 --8<-- “docs/macos/setup.sh”
 ```
 
+
 ## RenameMacUserNameAndHomeDirectory
 
 source [TheJumpCloud/support](https://github.com/TheJumpCloud/support/blob/master/scripts/macos/RenameMacUserNameAndHomeDirectory.sh)
+
 
 ``` title=“RenameMacUserNameAndHomeDirectory.sh”
 --8<-- “docs/macos/RenameMacUserNameAndHomeDirectory.sh”
@@ -27,6 +32,7 @@ source [TheJumpCloud/support](https://github.com/TheJumpCloud/support/blob/maste
 ## Defaults
 
 source [pathikrit/mac-setup-script](https://github.com/pathikrit/mac-setup-script)
+
 
 ``` title=“defaults.sh”
 --8<-- “docs/macos/defaults.sh”
