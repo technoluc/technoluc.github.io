@@ -299,4 +299,3 @@ killall Finder
 
 
 echo "Done!"
-```
