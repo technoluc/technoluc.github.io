@@ -86,7 +86,7 @@ apps=(
         spotify
         suspicious-package
         thefuck
-	      visual-studio-code
+        visual-studio-code
 )
 
 # Install apps to /Applications

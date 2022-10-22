@@ -1,0 +1,213 @@
+#!/usr/bin/env bash
+
+# ~/.macos 
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+################################################
+###               General UI/UX              ###
+################################################
+
+# Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
+echo "Enable admin info for login screen clock"
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+
+################################################
+###                   Finder                 ###
+################################################
+
+# Finder: Show hidden files by default
+echo "Finder: show hidden files"
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Finder: Show all filename extensions
+echo "Finder: show file extensions"
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Finder: Show status bar
+echo "Finder: show status bar"
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Finder: Show path bar
+echo "Finder: show path bar"
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Finder: Keep folders on top when sorting by name
+echo "Keep folders on top when sorting by name"
+defaults write com.apple.Finder _FXSortFoldersFirst -bool true
+
+# Allow text selection in Quick Look
+echo "Enable text selection in Quick Look"
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+
+# Enable calculate all sizes
+echo "Enable calculate all sizes"
+/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Delete "StandardViewSettings:ExtendedListViewSettings:calculateAllSizes" bool' 2> /dev/null
+/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Add "StandardViewSettings:ExtendedListViewSettings:calculateAllSizes" bool true'
+
+/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Delete "StandardViewSettings:ExtendedListViewSettingsV2:calculateAllSizes" bool' 2> /dev/null
+/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Add "StandardViewSettings:ExtendedListViewSettingsV2:calculateAllSizes" bool true'
+
+/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Delete "StandardViewSettings:ListViewSettings:calculateAllSizes" bool' 2> /dev/null
+/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Add "StandardViewSettings:ListViewSettings:calculateAllSizes" bool true'
+
+# Enabling snap-to-grid for icons on the desktop and in other icon views
+echo "Enabling snap-to-grid for icon views"
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+###################################################
+###                   LaunchPad                 ###
+###################################################
+
+# Change the Rows and Columns of Launchpad
+echo "set launchpad to 6 rows and 8 columns"
+defaults write com.apple.dock springboard-rows -int 6
+defaults write com.apple.dock springboard-columns -int 8
+defaults write com.apple.dock ResetLaunchPad -bool TRUE
+killall Dock
+
+###################################################
+###                   Misc                      ###
+###################################################
+
+# Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+echo "enable full keyboard access for controls"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Disable the “Are you sure you want to open this application?” dialog
+# echo "Disable the “Are you sure you want to open this application?” dialog"
+# defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+
+###################################################
+###                    Safari                   ###
+################################################### 
+
+# Prevent Safari from opening ‘safe’ files automatically after downloading
+echo "Prevent Safari from opening safe files automatically after downloading"
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
+# Enable the Develop menu and the Web Inspector in Safari
+echo "Enable the Develop menu and the Web Inspector in Safari"
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+
+###################################################
+###                    Xcode                    ###
+################################################### 
+
+# Install xcode
+echo "Installing xcode-stuff"
+xcode-select --install
+
+###################################################
+###                   Homebrew                  ###
+################################################### 
+
+# Check for Homebrew,
+# Install if we don't have it
+if test ! $(which brew); then
+echo "Installing homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# Update homebrew recipes
+echo "Updating homebrew..."
+brew update
+
+echo "Installing Git..."
+brew install git
+
+echo "Git config"
+
+git config --global user.name "technoluc"
+git config --global user.email luc@technoluc.nl
+
+echo "Installing brew git utilities..."
+brew install git-extras
+brew install legit
+brew install git-flow
+
+#Install Zsh & Oh My Zsh
+echo "Installing Oh My ZSH..."
+curl -L http://install.ohmyz.sh | sh
+
+###################################################
+###                Homebrew Apps                ###
+################################################### 
+
+# Apps
+apps=(
+    alfred
+    alt-tab
+    bartender
+    bettertouchtool
+    cleanmymac
+    cyberduck
+    devtoys
+    fig
+    google-chrome
+    iterm2
+    mas
+    raycast
+    spotify
+    suspicious-package
+    thefuck
+    visual-studio-code
+)
+
+
+# Install apps to /Applications
+# Default is: /Users/$user/Applications
+# echo "installing apps with Cask..."
+# brew cask install --appdir="/Applications" ${apps[@]}
+for app in $apps ;do
+    echo "installing $app with Cask..."
+    brew install --cask --appdir="/Applications" $app
+;done
+
+brew cask alfred link
+
+brew cask cleanup
+brew cleanup
+
+
+###################################################
+###                    MAS                      ###
+################################################### 
+
+
+mas_apps=(
+  409203825   # Numbers
+  1609781496  # Rayon
+  897118787   # Shazam
+  1295203466  # Microsoft Remote Desktop
+  1136220934  # Infuse
+  899247664   # TestFlight
+  1451685025  # WireGuard
+  1530751461  # Snippety
+  1147396723  # WhatsApp
+  409201541   # Pages
+  836847379   # NET_Toolkit
+  1559269364  # Notion Web Clipper
+
+)
+
+for mapp in $mas_apps ;do
+    echo "installing $mapp with Cask..."
+    mas install $mapp
+;done
+
