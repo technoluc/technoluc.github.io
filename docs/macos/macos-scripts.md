@@ -11,7 +11,7 @@
 source: [Installomator/Installomator](https://github.com/Installomator/Installomator)
 
 ```bash
-curl -OL https://github.com/Installomator/Installomator/raw/main/Installomator.sh && sudo sh ./Installomator.sh microsoftofficebusinesspro DEBUG=0
+curl -OL https://github.com/Installomator/Installomator/raw/main/Installomator.sh && sudo zsh ./Installomator.sh microsoftofficebusinesspro DEBUG=0
 ```
 
 ## setup.sh 
