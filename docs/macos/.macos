@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# ~/.macos 
-
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
@@ -12,9 +10,11 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-#----------------------------------------------#
-#                 General UI/UX                #
-#----------------------------------------------#
+
+echo "#----------------------------------------------#"
+echo "#                 General UI/UX                #"
+echo "#----------------------------------------------#"
+echo ""
 
 # Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
 echo "Enable admin info for login screen clock"
@@ -24,9 +24,15 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 # echo "Disable the “Are you sure you want to open this application?” dialog"
 # defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-#----------------------------------------------#
-#                     Finder                   #
-#----------------------------------------------#
+# Disable the sound effects on boot
+echo "Disable the sound effects on boot"
+sudo nvram SystemAudioVolume=" "
+
+
+echo "#----------------------------------------------#"
+echo "#                     Finder                   #"
+echo "#----------------------------------------------#"
+echo ""
 
 # Show the ~/Library folder
 echo "Show the ~/Library folder"
@@ -109,9 +115,10 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 
-#-------------------------------------------------#
-#                     LaunchPad                   #
-#-------------------------------------------------#
+echo "#-------------------------------------------------#"
+echo "#                     LaunchPad                   #"
+echo "#-------------------------------------------------#"
+echo ""
 
 # Change the Rows and Columns of Launchpad
 echo "set launchpad to 6 rows and 8 columns"
@@ -121,18 +128,20 @@ defaults write com.apple.dock ResetLaunchPad -bool TRUE
 killall Dock
 
 
-#-------------------------------------------------#
-#                     Misc                        #
-#-------------------------------------------------#
+echo "#-------------------------------------------------#"
+echo "#                     Misc                        #"
+echo "#-------------------------------------------------#"
+echo ""
 
 # Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 echo "enable full keyboard access for controls"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 
-#-------------------------------------------------#
-#                      Safari                     #
-#-------------------------------------------------# 
+echo "#-------------------------------------------------#"
+echo "#                      Safari                     #"
+echo "#-------------------------------------------------#"
+echo ""
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
 echo "Prevent Safari from opening safe files automatically after downloading"
@@ -151,18 +160,20 @@ echo "Add a context menu item for showing the Web Inspector in web views"
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 
-#-------------------------------------------------#
-#                      Xcode                      #
-#-------------------------------------------------# 
+echo "#-------------------------------------------------#"
+echo "#                      Xcode                      #"
+echo "#-------------------------------------------------#"
+echo ""
 
 # Install xcode
 echo "Installing xcode-stuff"
 xcode-select --install
 
 
-#-------------------------------------------------#
-#                     Homebrew                    #
-#-------------------------------------------------# 
+echo "#-------------------------------------------------#"
+echo "#                     Homebrew                    #"
+echo "#-------------------------------------------------#"
+echo ""
 
 # Check for Homebrew,
 # Install if we don't have it
@@ -189,18 +200,20 @@ brew install legit
 brew install git-flow
 
 
-#-------------------------------------------------#
-#                     Oh My Zsh                   #
-#-------------------------------------------------# 
+echo "#-------------------------------------------------#"
+echo "#                     Oh My Zsh                   #"
+echo "#-------------------------------------------------#"
+echo ""
 
 #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
 
 
-#-------------------------------------------------#
-#                   Homebrew Apps                 #
-#-------------------------------------------------# 
+echo "#-------------------------------------------------#"
+echo "#                   Homebrew Apps                 #"
+echo "#-------------------------------------------------#"
+echo ""
 
 # Apps
 apps=(
@@ -241,9 +254,10 @@ brew cask cleanup
 brew cleanup
 
 
-#-------------------------------------------------#
-#                      MAS                        #
-#-------------------------------------------------# 
+echo "#-------------------------------------------------#"
+echo "#                      MAS                        #"
+echo "#-------------------------------------------------#"
+echo ""
 
 # Mac App Store Apps
 mas_apps=(
