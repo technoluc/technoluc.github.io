@@ -2,8 +2,6 @@
 
 ## My Guides 
 
-[Advanced Bash-Scripting Guide](abs.md)
-
 [Bashrc](bashrc.md)
 
 [Extended Cheatsheet](cheatsheet.md)
