@@ -116,6 +116,7 @@ nav:
   - Home: index.md
   - Bash:
     - bash/index.md
+    - Advanced Bash-Scripting Guide: bash/abs.md
     - bashrc: bash/bashrc.md
     - Extended Cheatsheet: bash/cheatsheet.md
     - For.. Loops: bash/loops.md
