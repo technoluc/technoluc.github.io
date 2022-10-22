@@ -12,18 +12,25 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-################################################
-###               General UI/UX              ###
-################################################
+#----------------------------------------------#
+#                 General UI/UX                #
+#----------------------------------------------#
 
 # Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
 echo "Enable admin info for login screen clock"
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
+# # Disable the “Are you sure you want to open this application?” dialog
+# echo "Disable the “Are you sure you want to open this application?” dialog"
+# defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-################################################
-###                   Finder                 ###
-################################################
+#----------------------------------------------#
+#                     Finder                   #
+#----------------------------------------------#
+
+# Show the ~/Library folder
+echo "Show the ~/Library folder"
+chflags nohidden ~/Library
 
 # Finder: Show hidden files by default
 echo "Finder: show hidden files"
@@ -33,21 +40,31 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 echo "Finder: show file extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+
 # Finder: Show status bar
 echo "Finder: show status bar"
 defaults write com.apple.finder ShowStatusBar -bool true
+
 
 # Finder: Show path bar
 echo "Finder: show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
 
+
 # Finder: Keep folders on top when sorting by name
 echo "Keep folders on top when sorting by name"
 defaults write com.apple.Finder _FXSortFoldersFirst -bool true
 
+
 # Allow text selection in Quick Look
 echo "Enable text selection in Quick Look"
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+
+
+# Disable the warning when changing a file extension
+echo "Disable the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
 
 # Enable calculate all sizes
 echo "Enable calculate all sizes"
@@ -58,7 +75,7 @@ echo "Enable calculate all sizes"
 /usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Add "StandardViewSettings:ExtendedListViewSettingsV2:calculateAllSizes" bool true'
 
 /usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Delete "StandardViewSettings:ListViewSettings:calculateAllSizes" bool' 2> /dev/null
-/usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Add "StandardViewSettings:ListViewSettings:calculateAllSizes" bool true'
+/us
 
 # Enabling snap-to-grid for icons on the desktop and in other icon views
 echo "Enabling snap-to-grid for icon views"
@@ -66,9 +83,35 @@ echo "Enabling snap-to-grid for icon views"
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
-###################################################
-###                   LaunchPad                 ###
-###################################################
+
+# Avoid creating .DS_Store files on network or USB volumes
+echo "Avoid creating .DS_Store files on network or USB volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+
+# Disable disk image verification
+echo "Disable disk image verification"
+defaults write com.apple.frameworks.diskimages skip-verify -bool true
+defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+
+
+# Expand save panel by default
+echo "Expand save panel by default"
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+
+# Expand print panel by default
+echo "Expand print panel by default"
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+
+#-------------------------------------------------#
+#                     LaunchPad                   #
+#-------------------------------------------------#
 
 # Change the Rows and Columns of Launchpad
 echo "set launchpad to 6 rows and 8 columns"
@@ -77,26 +120,24 @@ defaults write com.apple.dock springboard-columns -int 8
 defaults write com.apple.dock ResetLaunchPad -bool TRUE
 killall Dock
 
-###################################################
-###                   Misc                      ###
-###################################################
+
+#-------------------------------------------------#
+#                     Misc                        #
+#-------------------------------------------------#
 
 # Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 echo "enable full keyboard access for controls"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Disable the “Are you sure you want to open this application?” dialog
-# echo "Disable the “Are you sure you want to open this application?” dialog"
-# defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-
-###################################################
-###                    Safari                   ###
-################################################### 
+#-------------------------------------------------#
+#                      Safari                     #
+#-------------------------------------------------# 
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
 echo "Prevent Safari from opening safe files automatically after downloading"
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
 
 # Enable the Develop menu and the Web Inspector in Safari
 echo "Enable the Develop menu and the Web Inspector in Safari"
@@ -105,17 +146,23 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
 
-###################################################
-###                    Xcode                    ###
-################################################### 
+# Add a context menu item for showing the Web Inspector in web views
+echo "Add a context menu item for showing the Web Inspector in web views"
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+
+#-------------------------------------------------#
+#                      Xcode                      #
+#-------------------------------------------------# 
 
 # Install xcode
 echo "Installing xcode-stuff"
 xcode-select --install
 
-###################################################
-###                   Homebrew                  ###
-################################################### 
+
+#-------------------------------------------------#
+#                     Homebrew                    #
+#-------------------------------------------------# 
 
 # Check for Homebrew,
 # Install if we don't have it
@@ -141,13 +188,19 @@ brew install git-extras
 brew install legit
 brew install git-flow
 
+
+#-------------------------------------------------#
+#                     Oh My Zsh                   #
+#-------------------------------------------------# 
+
 #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
 
-###################################################
-###                Homebrew Apps                ###
-################################################### 
+
+#-------------------------------------------------#
+#                   Homebrew Apps                 #
+#-------------------------------------------------# 
 
 # Apps
 apps=(
@@ -162,9 +215,11 @@ apps=(
     google-chrome
     iterm2
     mas
+    notion
     raycast
     spotify
     suspicious-package
+    termius
     thefuck
     visual-studio-code
 )
@@ -172,8 +227,9 @@ apps=(
 
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
-# echo "installing apps with Cask..."
-# brew cask install --appdir="/Applications" ${apps[@]}
+### echo "installing apps with Cask..."
+### brew cask install --appdir="/Applications" ${apps[@]}
+
 for app in $apps ;do
     echo "installing $app with Cask..."
     brew install --cask --appdir="/Applications" $app
@@ -185,11 +241,11 @@ brew cask cleanup
 brew cleanup
 
 
-###################################################
-###                    MAS                      ###
-################################################### 
+#-------------------------------------------------#
+#                      MAS                        #
+#-------------------------------------------------# 
 
-
+# Mac App Store Apps
 mas_apps=(
   409203825   # Numbers
   1609781496  # Rayon
@@ -207,7 +263,7 @@ mas_apps=(
 )
 
 for mapp in $mas_apps ;do
-    echo "installing $mapp with Cask..."
+    echo "installing $mapp with MAS..."
     mas install $mapp
 ;done
 

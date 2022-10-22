@@ -1,5 +1,11 @@
 # macOS Scripts
 
+## TL defaults
+
+``` title=".macos"
+--8<-- "docs/macos/.macos"
+```
+
 ## Installomator
 
 source: [Installomator/Installomator](https://github.com/Installomator/Installomator)
@@ -47,10 +53,4 @@ source [talkingmoose/Download and Install Microsoft product.zsh](https://gist.gi
 
 ```bash
 /usr/bin/curl --location --silent "https://go.microsoft.com/fwlink/?linkid=2009112" -o "O365BusinessPro.pkg" && /usr/sbin/installer -pkg "O365BusinessPro.pkg" -target /
-```
-
-## TL defaults
-
-``` title="defaults_luc.sh"
---8<-- "docs/macos/defaults_luc.sh"
 ```
