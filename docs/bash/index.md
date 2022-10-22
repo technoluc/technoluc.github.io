@@ -2,12 +2,14 @@
 
 ## My Guides 
 
-[Useful Commands](useful_commands.md)
+[Advanced Bash-Scripting Guide](abs.md)
+
+[Bashrc](bashrc.md)
 
 [Extended Cheatsheet](cheatsheet.md)
 
 [Loops](loops.md)
 
-[Bashrc](bashrc.md)
-
 [Scripts](scripts.md)
+
+[Useful Commands](useful_commands.md)
