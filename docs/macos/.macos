@@ -146,9 +146,11 @@ echo "enable full keyboard access for controls"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Enable two finger tap as right click
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
-# defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+echo "Enable two finger tap as right click"
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+
 
 echo "#-----------------------------------------------------------------#"
 echo "#                             Safari                              #"
@@ -170,6 +172,16 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Add a context menu item for showing the Web Inspector in web views
 echo "Add a context menu item for showing the Web Inspector in web views"
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+
+echo "#-----------------------------------------------------------------#"
+echo "#                             Misc                                #"
+echo "#-----------------------------------------------------------------#"
+echo ""
+
+# Disable auto-correct
+echo "Disable auto-correct"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 
 echo "#-----------------------------------------------------------------#"
@@ -207,6 +219,7 @@ brew install git
 
 echo "Git config"
 
+git config --global credential.helper store
 git config --global user.name "technoluc"
 git config --global user.email luc@technoluc.nl
 
@@ -215,10 +228,7 @@ brew install git-extras
 brew install legit
 brew install git-flow
 
-# Brew Formulae
 
-brew install mas
-brew install thefuck
 
 echo "#-----------------------------------------------------------------#"
 echo "#                             Oh My Zsh                           #"
@@ -235,12 +245,17 @@ echo "#                          Homebrew Apps                          #"
 echo "#-----------------------------------------------------------------#"
 echo ""
 
-# Apps
-apps=(
+# Formulae
+formulae=(
+    mas
+    thefuck
+)
+
+# Casks
+casks=(
     alfred
     alt-tab
     bartender
-    bettertouchtool
     brave-browser
     cyberduck
     devtoys
@@ -252,19 +267,21 @@ apps=(
     spotify
     suspicious-package
     termius
-    thefuck
     visual-studio-code
 )
 
 
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
-### echo "installing apps with Cask..."
-### brew cask install --appdir="/Applications" ${apps[@]}
 
-for app in $apps ;do
-    echo "installing $app with Cask..."
-    brew install --cask --appdir="/Applications" $app
+for formula in $formulae ;do
+    echo "installing $formula."
+    brew install --cask --appdir="/Applications" $formula
+;done
+
+for cask in $casks ;do
+    echo "installing $cask with Cask..."
+    brew install --cask --appdir="/Applications" $cask
 ;done
 
 # brew cask alfred link
@@ -321,3 +338,9 @@ defaults write com.apple.dock persistent-apps -array
 for dockItem in {/System/Applications/Launchpad,/System/Cryptexes/App/System/Applications/Safari,/System/Applications/{"Messages","Mail","Notes"},/Applications/{"Spotify","Visual Studio Code","Brave Browser","Notion","Microsoft Remote Desktop","Termius"},/System/Applications/{"App Store","System Settings"}}.app; do
   defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>'$dockItem'</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
 done
+
+defaults write com.apple.dock 'persistent-others' -array-add '<dict><key>tile-data</key><dict><key>arrangement</key><integer>0</integer><key>displayas</key><integer>1</integer><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/</string><key>_CFURLStringType</key><integer>0</integer></dict><key>preferreditemsize</key><integer>-1</integer><key>showas</key><integer>0</integer></dict><key>tile-type</key><string>directory-tile</string></dict>'  
+defaults write com.apple.dock 'persistent-others' -array-add '<dict><key>tile-data</key><dict><key>arrangement</key><integer>0</integer><key>displayas</key><integer>1</integer><key>file-data</key><dict><key>_CFURLString</key><string>/Users/luckurstjens/Downloads/</string><key>_CFURLStringType</key><integer>0</integer></dict><key>preferreditemsize</key><integer>-1</integer><key>showas</key><integer>0</integer></dict><key>tile-type</key><string>directory-tile</string></dict>'  
+
+killall Dock
+
