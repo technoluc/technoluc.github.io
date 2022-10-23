@@ -283,6 +283,45 @@ $ defaults write com.apple.Finder ShowMountedServersOnDesktop -bool true
 $ defaults write com.apple.Finder WarnOnEmptyTrash -bool false
 ```
 
+finder
+```shell
+
+# Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
+defaults write com.apple.finder QuitMenuItem -bool true
+
+# Set Desktop as the default location for new Finder windows
+defaults write com.apple.finder NewWindowTarget -string "PfDe"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+
+defaults write com.apple.finder AppleShowAllFiles -bool true        # Finder: Show hidden files by default
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true     # Finder: Show all filename extensions
+defaults write com.apple.finder ShowStatusBar -bool true            # Finder: Show status bar
+defaults write com.apple.finder ShowPathbar -bool true              # Finder: Show path bar
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true  # Finder: Display full POSIX path as window title
+defaults write com.apple.finder _FXSortFoldersFirst -bool true      # Finder: Keep folders on top when sorting by name
+chflags nohidden ~/Library     # Show the ~/Library folder
+sudo chflags nohidden /Volumes # Show the /Volumes folder
+
+# Avoid creating .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Automatically open a new Finder window when a volume is mounted
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+
+# Use list view in all Finder windows by default (codes for the other view modes: `icnv`, `clmv`, `Flwv`)
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+  General -bool true \
+  OpenWith -bool true \
+  Privileges -bool true
+  
+```
 
 # Dock, Dashboard, and hot corners
 
@@ -799,14 +838,6 @@ defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
 ```
 
-# Sublime Text
-
-
-## Install Sublime Text settings
-
-```shell
-cp -r init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
-```
 
 
 # Enable/Disable features
