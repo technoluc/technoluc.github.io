@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -213,6 +213,10 @@ fi
 echo "Updating homebrew..."
 brew update
 
+echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zshrc
+
+brew tap homebrew/cask-versions
+
 echo "Installing Git..."
 brew install git
 
@@ -226,6 +230,10 @@ brew install git-extras
 brew install legit
 brew install git-flow
 
+# Brew Formulae
+
+brew install mas
+brew install thefuck
 
 echo "#-----------------------------------------------------------------#"
 echo "#                             Oh My Zsh                           #"
@@ -254,7 +262,6 @@ apps=(
     fig
     google-chrome
     iterm2
-    mas
     notion
     raycast
     powershell-preview
@@ -310,4 +317,6 @@ for mapp in $mas_apps ;do
     echo "installing $mapp with MAS..."
     mas install $mapp
 ;done
+
+Add-Content -Path $PROFILE.CurrentUserAllHosts -Value '$(/opt/homebrew/bin/brew shellenv) | Invoke-Expression'
 
