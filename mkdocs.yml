@@ -136,6 +136,7 @@ nav:
     - Timezone: linux/set-timezone.md
   - macOS:
     - macos/index.md
+    - Defaults collection: macos/collection.md
     - Scripts: macos/macos-scripts.md
     - Shortcuts: macos/macos-shortcuts.md
     - VSCode Shortcuts: macos/vscode-macos-shortcuts.md
