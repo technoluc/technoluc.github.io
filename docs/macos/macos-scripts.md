@@ -54,3 +54,9 @@ source [talkingmoose/Download and Install Microsoft product.zsh](https://gist.gi
 ```bash
 /usr/bin/curl --location --silent "https://go.microsoft.com/fwlink/?linkid=2009112" -o "O365BusinessPro.pkg" && /usr/sbin/installer -pkg "O365BusinessPro.pkg" -target /
 ```
+
+## Activate Office 365 script
+
+``` title="MicrosoftActivate.md"
+--8<-- "https://gist.github.com/zthxxx/9ddc171d00df98cbf8b4b0d8469ce90a/raw/61a60e3a9754fe0b36919bcf14d7ef12a0e386a9/Activate%2520Office%25202019%2520for%2520macOS%2520VoL.md"
+```
