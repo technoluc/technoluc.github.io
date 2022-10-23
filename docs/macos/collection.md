@@ -490,19 +490,19 @@ $ defaults write com.apple.Dock expose-animation-duration -float 0.1
 
 ## Dashboard
 
-```shell
-# restart Dashboard
-$ killall Dock
 
-# show current Dashboard settings
-$ defaults read com.apple.Dashboard
+### restart Dashboard
+`killall Dock`
 
-# disable dashboard
-$ defaults write com.apple.Dashboard mcx-disabled -boolean true
+### show current Dashboard settings
+`defaults read com.apple.Dashboard`
 
-# enable dashboard
-$ defaults write com.apple.Dashboard mcx-disabled -boolean false
-```
+### disable dashboard
+`defaults write com.apple.Dashboard mcx-disabled -boolean true`
+
+### enable dashboard
+`defaults write com.apple.Dashboard mcx-disabled -boolean false`
+
 
 
 # Safari & WebKit
