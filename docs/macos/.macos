@@ -159,6 +159,10 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool t
 echo "enable full keyboard access for controls"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+# Enable two finger tap as right click
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 
 echo "#-----------------------------------------------------------------#"
 echo "#                             Safari                              #"
