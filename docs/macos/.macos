@@ -20,13 +20,14 @@ echo ""
 echo "Enable admin info for login screen clock"
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
+# Disable the sound effects on boot
+echo "Disable the sound effects on boot"
+sudo nvram SystemAudioVolume=" "
+
 # # Disable the “Are you sure you want to open this application?” dialog
 # echo "Disable the “Are you sure you want to open this application?” dialog"
 # defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-# Disable the sound effects on boot
-echo "Disable the sound effects on boot"
-sudo nvram SystemAudioVolume=" "
 
 echo "#-----------------------------------------------------------------#"
 echo "#                            Finder                               #"
@@ -45,31 +46,25 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 echo "Finder: show file extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-
 # Finder: Show status bar
 echo "Finder: show status bar"
 defaults write com.apple.finder ShowStatusBar -bool true
-
 
 # Finder: Show path bar
 echo "Finder: show path bar"
 defaults write com.apple.finder ShowPathbar -bool true
 
-
 # Finder: Keep folders on top when sorting by name
 echo "Keep folders on top when sorting by name"
 defaults write com.apple.Finder _FXSortFoldersFirst -bool true
-
 
 # Allow text selection in Quick Look
 echo "Enable text selection in Quick Look"
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 
-
 # Disable the warning when changing a file extension
 echo "Disable the warning when changing a file extension"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
 
 # Enable calculate all sizes
 echo "Enable calculate all sizes"
@@ -82,19 +77,16 @@ echo "Enable calculate all sizes"
 /usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Delete "StandardViewSettings:ListViewSettings:calculateAllSizes" bool'
 /usr/libexec/PlistBuddy "$HOME/Library/Preferences/com.apple.finder.plist" -c 'Add "StandardViewSettings:ListViewSettings:calculateAllSizes" bool true'
 
-
 # Enabling snap-to-grid for icons on the desktop and in other icon views
 echo "Enabling snap-to-grid for icon views"
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
-
 # Avoid creating .DS_Store files on network or USB volumes
 echo "Avoid creating .DS_Store files on network or USB volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-
 
 # Disable disk image verification
 echo "Disable disk image verification"
@@ -102,12 +94,10 @@ defaults write com.apple.frameworks.diskimages skip-verify -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
 defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-
 # Expand save panel by default
 echo "Expand save panel by default"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
-
 
 # Expand print panel by default
 echo "Expand print panel by default"
@@ -185,6 +175,16 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 
 echo "#-----------------------------------------------------------------#"
+echo "#                             Oh My Zsh                           #"
+echo "#-----------------------------------------------------------------#"
+echo ""
+
+#Install Zsh & Oh My Zsh
+echo "Installing Oh My ZSH..."
+curl -L http://install.ohmyz.sh | sh
+
+
+echo "#-----------------------------------------------------------------#"
 echo "#                             Xcode                               #"
 echo "#-----------------------------------------------------------------#"
 echo ""
@@ -229,17 +229,6 @@ brew install legit
 brew install git-flow
 
 
-
-echo "#-----------------------------------------------------------------#"
-echo "#                             Oh My Zsh                           #"
-echo "#-----------------------------------------------------------------#"
-echo ""
-
-#Install Zsh & Oh My Zsh
-echo "Installing Oh My ZSH..."
-curl -L http://install.ohmyz.sh | sh
-
-
 echo "#-----------------------------------------------------------------#"
 echo "#                          Homebrew Apps                          #"
 echo "#-----------------------------------------------------------------#"
@@ -253,7 +242,6 @@ formulae=(
 
 # Casks
 casks=(
-    alfred
     alt-tab
     bartender
     brave-browser
@@ -276,7 +264,7 @@ casks=(
 
 for formula in $formulae ;do
     echo "installing $formula."
-    brew install --cask --appdir="/Applications" $formula
+    brew install $formula
 ;done
 
 for cask in $casks ;do
@@ -307,7 +295,7 @@ mas_apps=(
   836847379   # NET_Toolkit
 )
 
-# Disabled mac apps
+# Other mac apps
   #1609781496  # Rayon    
   #1530751461  # Snippety
   #1559269364  # Notion Web Clipper
@@ -326,21 +314,24 @@ echo "#                           Dock                                  #"
 echo "#-----------------------------------------------------------------#"
 echo ""
 
-# Set Dock icon size
-defaults write com.apple.dock tilesize -int 44
+# reset all
+# defaults delete com.apple.dock; killall Dock
 
 # clear items
 defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock persistent-others -array
 
-# remove all
-# defaults delete com.apple.dock; killall Dock
-
+# Add Applications to Dock
 for dockItem in {/System/Applications/Launchpad,/System/Cryptexes/App/System/Applications/Safari,/System/Applications/{"Messages","Mail","Notes"},/Applications/{"Spotify","Visual Studio Code","Brave Browser","Notion","Microsoft Remote Desktop","Termius"},/System/Applications/{"App Store","System Settings"}}.app; do
   defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>'$dockItem'</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
 done
 
+# Add Applications and Download folders
 defaults write com.apple.dock 'persistent-others' -array-add '<dict><key>tile-data</key><dict><key>arrangement</key><integer>0</integer><key>displayas</key><integer>1</integer><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/</string><key>_CFURLStringType</key><integer>0</integer></dict><key>preferreditemsize</key><integer>-1</integer><key>showas</key><integer>0</integer></dict><key>tile-type</key><string>directory-tile</string></dict>'  
 defaults write com.apple.dock 'persistent-others' -array-add '<dict><key>tile-data</key><dict><key>arrangement</key><integer>0</integer><key>displayas</key><integer>1</integer><key>file-data</key><dict><key>_CFURLString</key><string>/Users/luckurstjens/Downloads/</string><key>_CFURLStringType</key><integer>0</integer></dict><key>preferreditemsize</key><integer>-1</integer><key>showas</key><integer>0</integer></dict><key>tile-type</key><string>directory-tile</string></dict>'  
+
+# Set Dock icon size
+defaults write com.apple.dock tilesize -int 45
 
 killall Dock
 
