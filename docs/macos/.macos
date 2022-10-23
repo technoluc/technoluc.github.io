@@ -11,9 +11,9 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
-echo "#----------------------------------------------#"
-echo "#                 General UI/UX                #"
-echo "#----------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                       General UI/UX                             #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 # Reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
@@ -28,9 +28,9 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 echo "Disable the sound effects on boot"
 sudo nvram SystemAudioVolume=" "
 
-echo "#----------------------------------------------#"
-echo "#                     Dock                     #"
-echo "#----------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                           Dock                                  #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 # clear items
@@ -43,9 +43,9 @@ echo ""
 #  defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>'$dockItem'</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
 #done
 
-echo "#----------------------------------------------#"
-echo "#                     Finder                   #"
-echo "#----------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                            Finder                               #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 # Show the ~/Library folder
@@ -129,9 +129,9 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 
-echo "#-------------------------------------------------#"
-echo "#                     LaunchPad                   #"
-echo "#-------------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                          LaunchPad                              #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 # Change the Rows and Columns of Launchpad
@@ -142,19 +142,27 @@ defaults write com.apple.dock ResetLaunchPad -bool TRUE
 killall Dock
 
 
-echo "#-------------------------------------------------#"
-echo "#                     Misc                        #"
-echo "#-------------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#   Trackpad, mouse, keyboard, Bluetooth accessories, and input   #"
+echo "#-----------------------------------------------------------------#"
 echo ""
+
+# Tap to click
+echo "Tap to click"
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+
+# Drag windows with three fingers
+echo "Drag windows with three fingers"
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true 
 
 # Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 echo "enable full keyboard access for controls"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 
-echo "#-------------------------------------------------#"
-echo "#                      Safari                     #"
-echo "#-------------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                             Safari                              #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
@@ -174,9 +182,9 @@ echo "Add a context menu item for showing the Web Inspector in web views"
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 
-echo "#-------------------------------------------------#"
-echo "#                      Xcode                      #"
-echo "#-------------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                             Xcode                               #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 # Install xcode
@@ -184,9 +192,9 @@ echo "Installing xcode-stuff"
 xcode-select --install
 
 
-echo "#-------------------------------------------------#"
-echo "#                     Homebrew                    #"
-echo "#-------------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                             Homebrew                            #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 # Check for Homebrew,
@@ -214,9 +222,9 @@ brew install legit
 brew install git-flow
 
 
-echo "#-------------------------------------------------#"
-echo "#                     Oh My Zsh                   #"
-echo "#-------------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                             Oh My Zsh                           #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 #Install Zsh & Oh My Zsh
@@ -224,9 +232,9 @@ echo "Installing Oh My ZSH..."
 curl -L http://install.ohmyz.sh | sh
 
 
-echo "#-------------------------------------------------#"
-echo "#                   Homebrew Apps                 #"
-echo "#-------------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                          Homebrew Apps                          #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 # Apps
@@ -269,9 +277,9 @@ brew cask cleanup
 brew cleanup
 
 
-echo "#-------------------------------------------------#"
-echo "#                      MAS                        #"
-echo "#-------------------------------------------------#"
+echo "#-----------------------------------------------------------------#"
+echo "#                              MAS                                #"
+echo "#-----------------------------------------------------------------#"
 echo ""
 
 # Mac App Store Apps
