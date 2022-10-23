@@ -29,21 +29,6 @@ echo "Disable the sound effects on boot"
 sudo nvram SystemAudioVolume=" "
 
 echo "#-----------------------------------------------------------------#"
-echo "#                           Dock                                  #"
-echo "#-----------------------------------------------------------------#"
-echo ""
-
-# clear items
-# defaults write com.apple.dock persistent-apps -array
-
-# remove all
-# defaults delete com.apple.dock; killall Dock
-
-#for dockItem in {/System/Applications/{"Launchpad","Safari","Mail","Notes","App Store","System Preferences"},/Applications/{"iTerm","Visual Studio Code","Brave Browser"}}.app; do
-#  defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>'$dockItem'</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
-#done
-
-echo "#-----------------------------------------------------------------#"
 echo "#                            Finder                               #"
 echo "#-----------------------------------------------------------------#"
 echo ""
@@ -256,12 +241,11 @@ apps=(
     alt-tab
     bartender
     bettertouchtool
-    cleanmymac
+    brave-browser
     cyberduck
     devtoys
     fig
     google-chrome
-    iterm2
     notion
     raycast
     powershell-preview
@@ -283,9 +267,9 @@ for app in $apps ;do
     brew install --cask --appdir="/Applications" $app
 ;done
 
-brew cask alfred link
+# brew cask alfred link
 
-brew cask cleanup
+brew cleanup cask
 brew cleanup
 
 
@@ -320,3 +304,17 @@ for mapp in $mas_apps ;do
 
 Add-Content -Path $PROFILE.CurrentUserAllHosts -Value '$(/opt/homebrew/bin/brew shellenv) | Invoke-Expression'
 
+echo "#-----------------------------------------------------------------#"
+echo "#                           Dock                                  #"
+echo "#-----------------------------------------------------------------#"
+echo ""
+
+# clear items
+# defaults write com.apple.dock persistent-apps -array
+
+# remove all
+# defaults delete com.apple.dock; killall Dock
+
+# for dockItem in {/System/Applications/{"Launchpad","Safari","Messages","Mail","Notes"},/Applications/{"Spotify","Visual Studio Code","Brave Browser","Notion","Microsoft Remote Desktop","Termius"},/System/Applications/{"App Store","System Settings"}}.app; do
+#   defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>'$dockItem'</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+# done
