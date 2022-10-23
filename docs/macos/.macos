@@ -28,6 +28,20 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 echo "Disable the sound effects on boot"
 sudo nvram SystemAudioVolume=" "
 
+echo "#----------------------------------------------#"
+echo "#                     Dock                     #"
+echo "#----------------------------------------------#"
+echo ""
+
+# clear items
+# defaults write com.apple.dock persistent-apps -array
+
+# remove all
+# defaults delete com.apple.dock; killall Dock
+
+#for dockItem in {/System/Applications/{"Launchpad","Safari","Mail","Notes","App Store","System Preferences"},/Applications/{"iTerm","Visual Studio Code","Brave Browser"}}.app; do
+#  defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>'$dockItem'</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
+#done
 
 echo "#----------------------------------------------#"
 echo "#                     Finder                   #"
