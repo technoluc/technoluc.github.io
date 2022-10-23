@@ -230,6 +230,7 @@ apps=(
     mas
     notion
     raycast
+    powershell-preview
     spotify
     suspicious-package
     termius
@@ -262,19 +263,21 @@ echo ""
 # Mac App Store Apps
 mas_apps=(
   409203825   # Numbers
-  1609781496  # Rayon
   897118787   # Shazam
   1295203466  # Microsoft Remote Desktop
   1136220934  # Infuse
-  899247664   # TestFlight
   1451685025  # WireGuard
-  1530751461  # Snippety
   1147396723  # WhatsApp
   409201541   # Pages
   836847379   # NET_Toolkit
-  1559269364  # Notion Web Clipper
-
 )
+
+# Disabled mac apps
+  #1609781496  # Rayon    
+  #1530751461  # Snippety
+  #1559269364  # Notion Web Clipper
+  #899247664   # TestFlight
+
 
 for mapp in $mas_apps ;do
     echo "installing $mapp with MAS..."
