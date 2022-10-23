@@ -309,6 +309,9 @@ echo "#                           Dock                                  #"
 echo "#-----------------------------------------------------------------#"
 echo ""
 
+# Set Dock icon size
+defaults write com.apple.dock tilesize -int 44
+
 # clear items
 # defaults write com.apple.dock persistent-apps -array
 
