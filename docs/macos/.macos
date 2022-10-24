@@ -25,9 +25,11 @@ echo "Disable the sound effects on boot"
 sudo nvram SystemAudioVolume=" "
 
 # Hide Siri in menu bar
+echo "Hide Siri in menu bar"
 defaults write com.apple.Siri StatusMenuVisible -bool false
 
 # Hide Spotlight in menu bar
+echo "Hide Spotlight in menu bar"
 defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
 
 # Disable the “Are you sure you want to open this application?” dialog
@@ -352,7 +354,8 @@ defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock persistent-others -array
 
 # Add Applications to Dock
-for dockItem in {/System/Applications/Launchpad,/System/Cryptexes/App/System/Applications/Safari,/System/Applications/{"Messages","Mail","Notes"},/Applications/{"Spotify","Visual Studio Code","Brave Browser","Notion","Microsoft Remote Desktop","Termius","Microsoft Word","Microsoft Excel","Microsoft OneNote"},/System/Applications/Utilities/Terminal,/System/Applications/{"App Store","System Settings"}}.app; do
+for dockItem in {/System/Applications/Launchpad,/System/Cryptexes/App/System/Applications/Safari,/System/Applications/{"Messages","Mail","Notes"},/Applications/{"Spotify","Visual Studio Code","Brave Browser","Notion","Microsoft Remote Desktop","Termius","Microsoft Word","Microsoft Excel","Microsoft OneNote"},/System/Applications/Utilities/Terminal,/System/Applications/{"App Store","System Settings"}}.app 
+do
   defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>'$dockItem'</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
 done
 
