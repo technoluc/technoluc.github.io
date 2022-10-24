@@ -193,15 +193,6 @@ echo "Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 
-echo "#-----------------------------------------------------------------#"
-echo "#                             Oh My Zsh                           #"
-echo "#-----------------------------------------------------------------#"
-echo ""
-
-#Install Zsh & Oh My Zsh
-echo "Installing Oh My ZSH..."
-curl -L http://install.ohmyz.sh | sh
-
 
 echo "#-----------------------------------------------------------------#"
 echo "#                             Xcode                               #"
@@ -247,11 +238,25 @@ brew install git-extras
 brew install legit
 brew install git-flow
 
+echo 'source /opt/homebrew/opt/git-extras/share/git-extras/git-extras-completion.zsh' >> ~/.zshrc
+brew install zsh-completions
+
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
+
+chmod -R go-w '/opt/homebrew/share/zsh'
+
+rm -f ~/.zcompdump; compinit
 
 echo "#-----------------------------------------------------------------#"
-echo "#                          Homebrew Apps                          #"
+echo "#                       Homebrew Formulae                         #"
 echo "#-----------------------------------------------------------------#"
 echo ""
+
 
 # Formulae
 formulae=(
@@ -260,6 +265,32 @@ formulae=(
     thefuck
     wget
 )
+
+for formula in $formulae 
+do
+    echo "installing $formula."
+    brew install $formula
+done
+
+echo 'eval $(thefuck --alias)' >> ~/.zshrc
+
+
+
+echo "#-----------------------------------------------------------------#"
+echo "#                             Oh My Zsh                           #"
+echo "#-----------------------------------------------------------------#"
+echo ""
+
+#Install Zsh & Oh My Zsh
+echo "Installing Oh My ZSH..."
+curl -L http://install.ohmyz.sh | sh
+
+
+echo "#-----------------------------------------------------------------#"
+echo "#                          Homebrew Apps                          #"
+echo "#-----------------------------------------------------------------#"
+echo ""
+
 
 # Casks
 casks=(
@@ -283,15 +314,12 @@ casks=(
 # Install apps to /Applications
 # Default is: /Users/$user/Applications
 
-for formula in $formulae ;do
-    echo "installing $formula."
-    brew install $formula
-;done
 
-for cask in $casks ;do
+for cask in $casks 
+do
     echo "installing $cask with Cask..."
     brew install --cask --appdir="/Applications" $cask
-;done
+done
 
 brew cleanup cask
 brew cleanup
