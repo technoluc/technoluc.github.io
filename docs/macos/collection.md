@@ -17,7 +17,7 @@
 `echo "Hide Siri in menu bar"`
 `defaults write com.apple.Siri StatusMenuVisible -bool false`
 
-### Hide Spotlight in menu ba`
+### Hide Spotlight in menu bar
 
 `echo "Hide Spotlight in menu bar"`
 `defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1`
