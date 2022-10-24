@@ -2,6 +2,8 @@
 
 ## TL defaults
 
+`curl -L https://mac.technoluc.nl > .macos && chmod 755 .macos`
+
 ``` title=".macos"
 --8<-- "docs/macos/.macos"
 ```
