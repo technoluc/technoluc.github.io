@@ -23,7 +23,7 @@ source: [bradp/setup.sh](https://gist.github.com/bradp/bea76b16d3325f5c47d4)
 `curl -LO https://technoluc.nl/macos/setup.sh`
 
 ``` title="setup.sh"
---8<-- "docs/macos/setup.sh"
+--8<-- "docs/macos/scripts/setup.sh"
 ```
 
 ## Rename Mac UserName And Home Directory
@@ -31,7 +31,7 @@ source: [bradp/setup.sh](https://gist.github.com/bradp/bea76b16d3325f5c47d4)
 source [TheJumpCloud/support](https://github.com/TheJumpCloud/support/blob/master/scripts/macos/RenameMacUserNameAndHomeDirectory.sh)
 
 ``` title="RenameMacUserNameAndHomeDirectory.sh"
---8<-- "docs/macos/RenameMacUserNameAndHomeDirectory.sh"
+--8<-- "docs/macos/scripts/RenameMacUserNameAndHomeDirectory.sh"
 ```
 
 ## Defaults
@@ -39,7 +39,7 @@ source [TheJumpCloud/support](https://github.com/TheJumpCloud/support/blob/maste
 source [pathikrit/mac-setup-script](https://github.com/pathikrit/mac-setup-script)
 
 ``` title="defaults.sh"
---8<-- "docs/macos/defaults.sh"
+--8<-- "docs/macos/scripts/defaults.sh"
 ```
 
 ## Download and Install Microsoft products
@@ -47,7 +47,7 @@ source [pathikrit/mac-setup-script](https://github.com/pathikrit/mac-setup-scrip
 source [talkingmoose/Download and Install Microsoft product.zsh](https://gist.github.com/talkingmoose/a16ca849416ce5ce89316bacd75fc91a)
 
 ``` title="MicrosoftInstallScript.sh"
---8<-- "docs/macos/MicrosoftInstallScript.sh"
+--8<-- "docs/macos/scripts/MicrosoftInstallScript.sh"
 ```
 
 ## Install Office 365 script
