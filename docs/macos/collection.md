@@ -1,4 +1,4 @@
-## macOS defaults
+# macOS defaults collection
 
 ## General UI/UX
 
