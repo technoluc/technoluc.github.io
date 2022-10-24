@@ -125,7 +125,7 @@ echo ""
 
 # Change the Rows and Columns of Launchpad
 echo "set launchpad to 6 rows and 8 columns"
-defaults write com.apple.dock springboard-rows -int 6
+defaults write com.apple.springboard-rows -int 6
 defaults write com.apple.dock springboard-columns -int 8
 defaults write com.apple.dock ResetLaunchPad -bool TRUE
 killall Dock
@@ -376,6 +376,9 @@ echo ""
 
 # reset all
 # defaults delete com.apple.dock; killall Dock
+
+# Hide recent apps
+defaults write com.apple.dock show-recents -bool FALSE
 
 # clear items
 defaults write com.apple.dock persistent-apps -array
