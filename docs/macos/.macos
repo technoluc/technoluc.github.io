@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -24,7 +24,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 echo "Disable the sound effects on boot"
 sudo nvram SystemAudioVolume=" "
 
-# # Disable the “Are you sure you want to open this application?” dialog
+# Disable the “Are you sure you want to open this application?” dialog
 # echo "Disable the “Are you sure you want to open this application?” dialog"
 # defaults write com.apple.LaunchServices LSQuarantine -bool false
 
@@ -33,6 +33,11 @@ echo "#-----------------------------------------------------------------#"
 echo "#                            Finder                               #"
 echo "#-----------------------------------------------------------------#"
 echo ""
+
+# Set HOME as the default location for new Finder windows
+echo "Set HOME as the default location for new Finder windows"
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
 # Show the ~/Library folder
 echo "Show the ~/Library folder"
@@ -158,6 +163,9 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
+# Show Safari status bar
+echo "Show Safari status bar"
+defaults write com.apple.Safari ShowStatusBar -boolean true
 
 # Add a context menu item for showing the Web Inspector in web views
 echo "Add a context menu item for showing the Web Inspector in web views"
@@ -238,6 +246,7 @@ echo ""
 formulae=(
     mas
     thefuck
+    wget
 )
 
 # Casks
@@ -272,8 +281,6 @@ for cask in $casks ;do
     brew install --cask --appdir="/Applications" $cask
 ;done
 
-# brew cask alfred link
-
 brew cleanup cask
 brew cleanup
 
@@ -296,10 +303,10 @@ mas_apps=(
 )
 
 # Other mac apps
-  #1609781496  # Rayon    
-  #1530751461  # Snippety
-  #1559269364  # Notion Web Clipper
-  #899247664   # TestFlight
+#   1609781496  # Rayon    
+#   1530751461  # Snippety
+#   1559269364  # Notion Web Clipper
+#   899247664   # TestFlight
 
 
 for mapp in $mas_apps ;do
@@ -307,7 +314,20 @@ for mapp in $mas_apps ;do
     mas install $mapp
 ;done
 
-Add-Content -Path $PROFILE.CurrentUserAllHosts -Value '$(/opt/homebrew/bin/brew shellenv) | Invoke-Expression'
+echo "#-----------------------------------------------------------------#"
+echo "#                         Office                                  #"
+echo "#-----------------------------------------------------------------#"
+echo ""
+
+# Download & Install Office
+
+wget -P ~/Downloads https://github.com/technoluc/macos/releases/download/v16.66/Microsoft.Office.2021.v16.66.zip
+unzip ~/Downloads/Microsoft.Office.2021.v16.66.zip -d ~/Downloads
+yes | PAGER=cat hdiutil attach ~/Downloads/Microsoft.Office*.dmg
+sudo installer -pkg /Volumes/Microsoft*/Microsoft*.pkg -target /
+sudo installer -pkg /Volumes/Microsoft*/Extra/LTSC*.pkg -target /
+
+
 
 echo "#-----------------------------------------------------------------#"
 echo "#                           Dock                                  #"
@@ -322,7 +342,7 @@ defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock persistent-others -array
 
 # Add Applications to Dock
-for dockItem in {/System/Applications/Launchpad,/System/Cryptexes/App/System/Applications/Safari,/System/Applications/{"Messages","Mail","Notes"},/Applications/{"Spotify","Visual Studio Code","Brave Browser","Notion","Microsoft Remote Desktop","Termius"},/System/Applications/{"App Store","System Settings"}}.app; do
+for dockItem in {/System/Applications/Launchpad,/System/Cryptexes/App/System/Applications/Safari,/System/Applications/{"Messages","Mail","Notes"},/Applications/{"Spotify","Visual Studio Code","Brave Browser","Notion","Microsoft Remote Desktop","Termius","Microsoft Word","Microsoft Excel","Microsoft OneNote"},/System/Applications/Utilities/Terminal,/System/Applications/{"App Store","System Settings"}}.app; do
   defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>'$dockItem'</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
 done
 
@@ -335,3 +355,13 @@ defaults write com.apple.dock tilesize -int 45
 
 killall Dock
 
+echo "#-----------------------------------------------------------------#"
+echo "#                         Terminal                                #"
+echo "#-----------------------------------------------------------------#"
+echo ""
+
+PLIST="$HOME/Library/Preferences/com.apple.Terminal.plist"
+THEME=`/usr/libexec/PlistBuddy -c "Print 'Startup Window Settings'" $PLIST`
+/usr/libexec/PlistBuddy -c "Set 'Window Settings':${THEME}:useOptionAsMetaKey YES" $PLIST
+/usr/libexec/PlistBuddy -c "Set 'Window Settings':${THEME}:shellExitAction 1" $PLIST
+killall Terminal
