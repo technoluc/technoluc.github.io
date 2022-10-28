@@ -10,6 +10,8 @@
 
 [$PATH](path.md)
 
+[PowerShell](pwsh.md)
+
 [System File Checker](sfc.md)
 
 [Printers](printers.md)

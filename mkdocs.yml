@@ -171,6 +171,7 @@ nav:
     - Apps: windows/apps.md
     - Nirsoft: windows/nirsoft.md
     - Path: windows/path.md
+    - PowerShell: windows/pwsh.md
     - Printers: windows/printers.md
     - SFC: windows/sfc.md
     - WinGet: windows/winget.md
