@@ -129,7 +129,11 @@ nav:
   - Gists: 'https://gist.github.com/technoluc/starred'
   - Links: 
     - links/index.md
+    - CSS-Tricks: 'https://css-tricks.com'
+    - Daily.dev: 'https://app.daily.dev/'
     - DevDocs: 'https://devdocs.io'
+    - Readme.so: 'https://readme.so'
+    - Resume.io: 'https://resume.io'
   - Linux:
     - linux/index.md
     - Hostname: linux/set-hostname.md
