@@ -122,12 +122,14 @@ nav:
     - For.. Loops: bash/loops.md
     - Scripts: bash/scripts.md
     - Useful Commands: bash/useful_commands.md
-#    - Simple Bash Scripts: '!include ./submodules/ruanyf/mkdocs.yml' 
   - Docker: 
     - docker/index.md
     - Docker CLI: docker/docker-cli.md
     - Docker Compose: docker/docker-compose.md
   - Gists: 'https://gist.github.com/technoluc/starred'
+  - Links: 
+    - links/index.md
+    - DevDocs: 'https://devdocs.io'
   - Linux:
     - linux/index.md
     - Hostname: linux/set-hostname.md
