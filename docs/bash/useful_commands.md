@@ -260,3 +260,22 @@ echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 ```bash
 sudo visudo -c
 ```
+
+## Grep
+
+To search for a text in a file, use the grep command.
+
+```
+grep -i "hello" hello.txt
+Hello World
+```
+
+this will search for the text “hello” in the file hello.txt. Adding -i will ignore the case.
+
+Adding -E will allows us to search for multiple items using | as a separator
+
+example: 
+
+```bash
+kubectl describe po grafana-59b7f4d459-ksw62 | grep -E -i "image|port"
+```
