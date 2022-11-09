@@ -279,3 +279,72 @@ example:
 ```bash
 kubectl describe po grafana-59b7f4d459-ksw62 | grep -E -i "image|port"
 ```
+
+## Cut
+
+To extract parts of a string, use the cut command.
+
+```
+echo "Hello World" | cut -c 1-5
+Hello
+```
+
+```
+cut -c 1-5 hello.txt
+Hello
+123
+```
+
+will extract the 1–5 character of the string “Hello World” or the first 5 characters of each line in the file hello.txt.
+
+```
+pwd
+/Users/guyzsarun/Desktop
+```
+
+```
+pwd | cut -f 4 -d "/"
+Desktop
+```
+
+-f 4 will extract the 4th field of the string "/Users/guyzsarun/Desktop"
+
+-d "/" will use / as the separator.
+
+## Awk
+
+awkcommand is used to extract parts of a string line by line
+
+``` 
+docker -v
+Docker version 20.10.17, build 100c701
+```
+
+
+```
+docker -v | awk '{print $3,$5}'
+20.10.17, 100c701
+```
+
+this will print the version of docker and the build number splitting the string by spaces. $3 will print the version and $5 will print the build number.
+
+```
+java --version
+openjdk 18.0.2 2022-07-19
+OpenJDK Runtime Environment Homebrew (build 18.0.2+0)
+OpenJDK 64-Bit Server VM Homebrew (build 18.0.2+0, mixed mode, sharing)
+```
+
+For this example, if we want to get only the version from the first line, we can specify the line number using NR==1.
+
+```
+java --version | awk 'NR==1 {print $2}'
+18.0.2
+```
+
+or we can search for terms that we want. for example, matching the line with the word VM and select the second field.
+
+```
+java --version | awk '/VM/ {print $2}'
+64-Bit
+```
