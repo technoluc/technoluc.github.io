@@ -127,6 +127,9 @@ nav:
     - Docker CLI: docker/docker-cli.md
     - Docker Compose: docker/docker-compose.md
   - Gists: 'https://gist.github.com/technoluc/starred'
+  - iOS:
+    - ios/index.md
+    - Move to iOS: ios/move.md
   - Links: 
     - links/index.md
     - CSS-Tricks: 'https://css-tricks.com'
