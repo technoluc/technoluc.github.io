@@ -4,8 +4,8 @@
 | Topic                          |
 |--------------------------------|
 | [Bash](bash/index.md)          |
-| [Docker](docker/index.md)
-| [iOS] (ios/index.md)
+| [Docker](docker/index.md)      |
+| [iOS] (ios/index.md)           |
 | [Linux](linux/index.md)        |
 | [macOS](macos/index.md)        |
 | [Markdown](markdown/index.md)  |
