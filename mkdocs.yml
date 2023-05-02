@@ -182,5 +182,6 @@ nav:
     - Path: windows/path.md
     - PowerShell: windows/pwsh.md
     - Printers: windows/printers.md
+    - RDP: windows/rdp.md
     - SFC: windows/sfc.md
     - WinGet: windows/winget.md

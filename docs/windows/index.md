@@ -12,6 +12,8 @@
 
 [PowerShell](pwsh.md)
 
+[RDP](rdp.md)
+
 [System File Checker](sfc.md)
 
 [Printers](printers.md)
