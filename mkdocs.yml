@@ -185,3 +185,4 @@ nav:
     - RDP: windows/rdp.md
     - SFC: windows/sfc.md
     - WinGet: windows/winget.md
+    - Reset a Forgotten Windows Administrator Password: windows/admin.md
