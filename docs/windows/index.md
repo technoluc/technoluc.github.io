@@ -18,6 +18,7 @@
 
 [Printers](printers.md)
 
+[Reset a Forgotten Windows Administrator Password](admin.md)
 
 ## Run TechnoLuc's WinUtil
 
