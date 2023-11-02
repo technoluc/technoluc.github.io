@@ -35,3 +35,15 @@ Set-PSReadlineOption -HistorySaveStyle SaveAtExit
 ```bat
 Set-PSReadlineOption -HistorySaveStyle SaveNothing
 ```
+
+## Powershell Admin to non-admin
+
+```bat
+runas /trustlevel:0x20000 "powershel -Command Invoke-Expression (Invoke-RestMethod -Uri $URL)"
+```
+
+example:
+```bat
+$URL = "https://get.technoluc.nl"
+runas /trustlevel:0x20000 "powershel -Command Invoke-Expression (Invoke-RestMethod -Uri $URL)"
+```
