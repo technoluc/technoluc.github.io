@@ -1,0 +1,3 @@
+# RAM
+
+![RAM](ram.jpeg)
