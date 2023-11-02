@@ -19,6 +19,7 @@ theme:
   favicon: assets/TL.png
   language: en
   features:
+    - content.action.edit
     - content.code.annotate
     # - content.tabs.link
     - content.tooltips
