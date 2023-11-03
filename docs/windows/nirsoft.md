@@ -1,5 +1,10 @@
 # Download NirSoft software via terminal
 
+0. Install 7Zip (run in powershell)
+```bat 
+Invoke-RestMethod https://raw.githubusercontent.com/technoluc/officeutil/main/functions/Install-7ZipIfNeeded.ps1 | Invoke-Expression
+```
+
 1. Add 7-zip to $PATH
 ```bat
 $Env:PATH = "C:\Program Files\7-Zip;$Env:PATH"
