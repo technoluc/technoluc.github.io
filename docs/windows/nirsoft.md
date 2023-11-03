@@ -27,7 +27,7 @@ Remove-Item alias:wget
 ```bat
 # Download software with referer
 wget  --referer foo 'https://www.nirsoft.net/toolsdownload/netpass-x64.zip' --output-document 'netpass-x64.zip' --no-check-certificate
-# Extract zip with password to folder NetPass
+# Extract zip with password to folder NetPass (x: keeps folders, e: extracts all files)
 7z.exe x .\netpass-x64.zip -pntps5291# -oNetPass
 ```
 
@@ -35,6 +35,6 @@ wget  --referer foo 'https://www.nirsoft.net/toolsdownload/netpass-x64.zip' --ou
 ```bat
 # Download software with referer
 wget --referer foo 'https://download.nirsoft.net/nirsoft_package_enc_1.30.6.zip' --output-document 'nirsoft_package_enc_1.30.6.zip' --no-check-certificate
-# Extract zip with password to folder NirLauncher
+# Extract zip with password to folder NirLauncher (x: keeps folders, e: extracts all files)
 7z.exe x .\nirsoft_package_enc_1.30.6.zip -pnirsoft9876$ -oNirLauncher
 ```
