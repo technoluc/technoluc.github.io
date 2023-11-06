@@ -2,7 +2,7 @@
 
 0. Install 7Zip (run in powershell)
 ```bat 
-Invoke-RestMethod https://raw.githubusercontent.com/technoluc/officeutil/main/functions/Install-7ZipIfNeeded.ps1 | Invoke-Expression
+Invoke-RestMethod https://raw.githubusercontent.com/technoluc/technoluc.github.io/main/docs/windows/install_7zip.ps1 | Invoke-Expression
 ```
 
 1. Add 7-zip to $PATH
