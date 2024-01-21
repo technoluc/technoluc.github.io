@@ -1,10 +1,8 @@
-# Welcome to TechnoLuc Documentation!
+Welcome to TechnoLuc's Documentation!
 
-![TechnoLuc Logo](assets/TL.png)
+<img src="assets/TL.png" alt="TechnoLuc Logo" width="150">
 
-Create a branded static site from a set of Markdown files to host the documentation of your Open Source or commercial project.
-
-Explore our documentation categories:
+Explore the documentation categories:
 
 ## Bash
 - [Bash Introduction](bash/index.md)
