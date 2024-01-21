@@ -27,7 +27,6 @@ jobs:
             mkdocs-material-
       - name: Install Python dependencies
         run: |
-          pip install .
           pip install \
             pip install mkdocs-material \
             mkdocs-minify-plugin>=0.3 \
