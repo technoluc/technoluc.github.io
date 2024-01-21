@@ -25,5 +25,15 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
+      - name: Install Python dependencies
+        run: |
+          pip install .
+          pip install \
+            pip install mkdocs-material \
+            mkdocs-minify-plugin>=0.3 \
+            mkdocs-redirects>=1.0 \
+            mkdocs-rss-plugin>=0.17 \
+            mkdocs-awesome-pages-plugin \
+            mkdocs-monorepo-plugin
+
       - run: mkdocs gh-deploy --force
