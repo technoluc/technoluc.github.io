@@ -63,7 +63,7 @@ theme:
 plugins:
     - search
     - awesome-pages
-    - monorepo
+    # - monorepo
 
 # Extensions
 markdown_extensions:
@@ -160,7 +160,7 @@ nav:
     - Cheatsheet 1: markdown/markdown-cheat-sheet.md
     - Cheatsheet 2: markdown/markdown-cheatsheet.md
     - MkDocs: mkdocs/index.md
-  - Miscellaneous: '*include ./submodules/*/mkdocs.yml'
+  # - Miscellaneous: '*include ./submodules/*/mkdocs.yml'
   - Office:
     - office/index.md
     - Excel: 
