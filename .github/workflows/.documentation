@@ -41,21 +41,45 @@ jobs:
         with: 
           submodules: recursive
 
+#      - name: Set up Python runtime
+#        uses: actions/setup-python@v3
+#        with:
+#          python-version: ${{ env.PYTHON_VERSION }}
+
       - name: Set up Python runtime
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+
+      - name: Set up build cache
+        uses: actions/cache/restore@v4
+        with:
+          key: mkdocs-material-${{ hashfiles('.cache/**') }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+
+      - name: Install dependencies
+        run: sudo apt-get install pngquant
 
       - name: Install Python dependencies
         run: |
-          pip install .
-          pip install \
-            pip install mkdocs-material \
-            mkdocs-minify-plugin>=0.3 \
-            mkdocs-redirects>=1.0 \
-            mkdocs-rss-plugin>=0.17 \
-            mkdocs-awesome-pages-plugin \
-            mkdocs-monorepo-plugin
+          pip install mkdocs-material
+          pip install .[recommended,git,imaging]
+
+#      - name: Install Python dependencies
+#        run: |
+#          pip install .
+#          pip install \
+#            pip install mkdocs-material \
+#            mkdocs-minify-plugin>=0.3 \
+#            mkdocs-redirects>=1.0 \
+#            mkdocs-rss-plugin>=0.17 \
+#            mkdocs-awesome-pages-plugin \
+#            mkdocs-monorepo-plugin
 
 
       - name: Deploy documentation
