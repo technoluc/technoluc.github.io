@@ -90,3 +90,11 @@ credits: https://msguides.com/
     :halt
     pause >nul
     ```
+
+## Re-add the bypassnro command to your system
+
+    ``` bat
+    reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE /v BypassNRO /t REG_DWORD /d 1 /f shutdown /r /t 0
+    ```
+    
+    source: https://www.windowscentral.com/software-apps/windows-11/microsoft-will-force-windows-11-installs-to-use-a-microsoft-account-confirms-removal-of-popular-setup-bypass
