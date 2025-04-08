@@ -91,6 +91,14 @@ credits: https://msguides.com/
     pause >nul
     ```
 
+# Skip Microsoft Account creation
+
+## Create local account
+
+    ``` bat
+    start ms-cxh:localonly
+    ```
+
 ## Re-add the bypassnro command to your system
 
     ``` bat
