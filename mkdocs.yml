@@ -190,5 +190,6 @@ nav:
     - Printers: windows/printers.md
     - RDP: windows/rdp.md
     - SFC: windows/sfc.md
+    - SFCv2: windows/sfcv2.md
     - WinGet: windows/winget.md
     - Reset a Forgotten Windows Administrator Password: windows/admin.md
