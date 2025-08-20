@@ -4,7 +4,7 @@ Een uitgebreide, overzichtelijke gids met alle belangrijke **CHKDSK**, **SFC** e
 
 ---
 
-## **1. CHKDSK (Check Disk)**
+## 1. CHKDSK (Check Disk)
 
 **CHKDSK** controleert de harde schijf op fouten en kan deze zo nodig repareren.
 
@@ -21,7 +21,7 @@ Een uitgebreide, overzichtelijke gids met alle belangrijke **CHKDSK**, **SFC** e
 
 ---
 
-## **2. SFC (System File Checker)**
+## 2. SFC (System File Checker)
 
 **SFC** controleert Windows-systeembestanden op corruptie en repareert ze indien mogelijk.
 
@@ -40,11 +40,11 @@ Een uitgebreide, overzichtelijke gids met alle belangrijke **CHKDSK**, **SFC** e
 
 ---
 
-## **3. DISM (Deployment Image Servicing and Management)**
+## 3. DISM (Deployment Image Servicing and Management)**
 
 **DISM** repareert het Windows-image en wordt vooral gebruikt als SFC niet voldoende is.
 
-### **3.1. Basiscontroles**
+### 3.1. Basiscontroles
 
 | **Commando**                                 | **Functie**                                                     |
 | -------------------------------------------- | --------------------------------------------------------------- |
@@ -54,7 +54,7 @@ Een uitgebreide, overzichtelijke gids met alle belangrijke **CHKDSK**, **SFC** e
 
 ---
 
-### **3.2. Geavanceerde reparaties**
+### 3.2. Geavanceerde reparaties
 
 | **Commando**                                                                             | **Functie**                                                                                                         |
 | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -71,7 +71,7 @@ Een uitgebreide, overzichtelijke gids met alle belangrijke **CHKDSK**, **SFC** e
 
 ---
 
-## **4. Beste volgorde bij problemen**
+## 4. Beste volgorde bij problemen
 
 Bij hardnekkige fouten is dit de aanbevolen volgorde:
 
@@ -87,7 +87,7 @@ sfc /scannow
 
 ---
 
-## **5. Logbestanden**
+## 5. Logbestanden
 
 | **Tool** | **Locatie logbestand**          |
 | -------- | ------------------------------- |
@@ -99,7 +99,7 @@ Gebruik `notepad <pad>` om logbestanden direct te openen.
 
 ---
 
-## **6. Praktische tips**
+## 6. Praktische tips
 
 * Voer alle commando’s uit via **Administrator Command Prompt** of **PowerShell**.
 * Mount een Windows-installatie-ISO als bron bij grote reparaties.
@@ -108,7 +108,7 @@ Gebruik `notepad <pad>` om logbestanden direct te openen.
 
 ---
 
-## **7. Snelle referentie**
+## 7. Snelle referentie
 
 ```cmd
 :: Controleer en repareer systeembestanden
