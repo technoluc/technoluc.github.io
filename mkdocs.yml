@@ -181,6 +181,7 @@ nav:
     - Virtual Environment: python/virtualenv.md
   - Windows:
     - windows/index.md
+    - Microsoft Activation Scripts: windows/Microsoft-Activation-Scripts.md
     - Activate Office 2021: windows/office.md
     - Activate Windows 10/11: windows/windows.md
     - Apps: windows/apps.md
