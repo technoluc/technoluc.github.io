@@ -86,6 +86,7 @@ Explore the documentation categories:
 - [Printer Configuration](windows/printers.md)
 - [Remote Desktop (RDP) Tips](windows/rdp.md)
 - [SFC (System File Checker)](windows/sfc.md)
+- [SFCv2 (System File Checker)](windows/sfcv2.md)
 - [Windows Package Manager (WinGet)](windows/winget.md)
 - [Reset a Forgotten Windows Administrator Password](windows/admin.md)
 
